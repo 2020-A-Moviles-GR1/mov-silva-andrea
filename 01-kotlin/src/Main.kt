@@ -17,12 +17,12 @@ fun main(args:Array<String>){
     edadCachorro=3
 
     edadProfesor =32
-    //Inmutable no pueden ser redclaradas no se puede reasignar
+    //Inmutable no pueden ser redclaradas no se puede reasignar, palabra clave val
 
     val numeroCuenta =123456
     //numeroCuenta= 456
     //tipos de varibles
-    // todas la varibales que se encuntra en java se pue utilizr en kotlin
+    // todas la varibales que se encuentra en java se pue utilizr en kotlin
     val nombreProfesor:  = "Vicente Adrian"
     val sueldo = 12.20
     val apellidosProfesor= 'a'
