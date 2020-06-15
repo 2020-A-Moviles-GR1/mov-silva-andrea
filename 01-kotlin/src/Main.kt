@@ -1,4 +1,6 @@
 import java.util.*
+import java.util.function.Consumer
+import kotlin.collections.ArrayList
 
 fun main(args:Array<String>){
     print("Hola")
@@ -23,7 +25,7 @@ fun main(args:Array<String>){
     //numeroCuenta= 456
     //tipos de varibles
     // todas la varibales que se encuentra en java se pue utilizr en kotlin
-    val nombreProfesor:  = "Vicente Adrian"
+    val nombreProfesor=   "Vicente Adrian"
     val sueldo = 12.20
     val apellidosProfesor= 'a'
     //clase en kotlin
@@ -51,6 +53,70 @@ fun main(args:Array<String>){
     calcularSueldo(14.00,1000.00)
     //parametros nombrados
     calcularSueldo(sueldo=800.00,tasa=16.00)
+//array no se puede modificar o añadir mas elementos a diferencia del arraylist
+    val arregloConstante: Array<Int> = arrayOf(1,2,3)
+    val arregloCumpleanos: ArrayList<Int> = arrayListOf(30,31,22,23,20)
+    arregloCumpleanos.add(24)
+    print(arregloCumpleanos)
+    arregloCumpleanos.remove(30)
+    print(arregloCumpleanos)
+
+    //cualquier arreglo tien funciones, para iterar debes de usar el for usaremos  foreach
+    //tipos de funciones conocido como operadores de arreglos
+    //sintaxis que usa kotlin mediante llaves se ejecuta la parte del codifo y se tien la vaiable it de iteracion de tipo entero
+    //otra sintaxis con parentesis o parentesis y llaves
+    arregloCumpleanos.forEach{
+        println("Valor de la iteración "+ it)
+    }
+    arregloCumpleanos.forEach(Consumer {
+        valorIteracion:Int ->
+        println("valor iteracion: "+valorIteracion)
+    })
+    arregloCumpleanos.forEach{
+        valorIteracion:Int ->
+        println("valor iteracion: "+valorIteracion)
+    }
+    val respuestaArregloForEach= arregloCumpleanos.forEachIndexed{
+            index:Int, it:Int ->
+        println("Valor de la iteración "+ it + index)
+    }
+    println(respuestaArregloForEach)
+
+    //Opeadores se encuntra disponible en todos los lenguajes
+    //ayuda a resolver problemas
+    //FOREACH: no devulve nada ->Unit no cambia el arreglo
+    // para cambiar los elementos de un arreglo se utiliza el operador MAP
+    // map muta el arreglo o lo cambia
+    //map uso de return con los valores nuevos
+    //1) enviamos el nuevo valor de la iteracion
+    //2) nos devulve el NUEVO arreglo con las variables modificadas
+    val respuestaMap = arregloCumpleanos.map {iterador: Int ->
+         iterador * -1
+    }
+    println(respuestaMap)
+    println(arregloCumpleanos)
+    //sintaxis mas de una linea
+    val respuestaMapDos = arregloCumpleanos.map {iterador: Int ->
+        val nuevoValor =iterador * -1
+        val otroValor= nuevoValor*2
+        return@map otroValor
+    }
+    println(respuestaMapDos)
+
+    // Filter -> filtrar el arreglo
+    //1) devolver una expresion (true o false)
+    //2) nuevo arreglo que cumpla esa expresion
+   val respuestaFilter= arregloCumpleanos.filter {iteracion:Int ->
+        val esMayor23 =iteracion >23
+        return@filter esMayor23
+    }
+println(respuestaFilter)
+
+
+
+
+
+
 
 
 
