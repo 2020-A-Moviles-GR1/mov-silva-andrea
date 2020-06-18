@@ -155,6 +155,7 @@ val respuestaFold= arregloCumpleanos.fold(100,{
     print(respuestaFold)
 //arreglo desde el final
 //reduceRigth
+    //operadores devuelven
     //fold.Right
     //foreach -> nada
     //map -> arreglo
@@ -218,7 +219,7 @@ fun imprimirMenasaje() {
     //////////////
     // Clases
     //clase abstracta
-    //ayudan a crear otras clases que deriben de ella
+    //ayudan a crear otras clases que deriven de ella
     abstract class NumerosJava{
        val numeroUno:Int
        val numeroDos:Int
