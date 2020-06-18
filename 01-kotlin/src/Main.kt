@@ -241,4 +241,14 @@ fun imprimirMenasaje() {
             return this.numeroUno + this.numeroDos
         }
     }
+
+    class SumaDos(
+            public var uno: Int, //propiedades
+            public var dos: Int):Numeros(uno,dos){
+        fun sumar():Int{
+            this.uno
+            this.dos
+            return this.numeroUno + this.numeroDos
+        }
+    }
 }
