@@ -112,6 +112,73 @@ fun main(args:Array<String>){
     }
 println(respuestaFilter)
 
+    //buscar elementos en el arreglo que cumpla cierta condicion
+    //el operador Any ->Filter busca si existe mas de una ocurrencia
+    // AND-> TRUE  lo demas false
+    //OR-> es falso, lo demas era verdadero
+    // all-> AND (EVERY)
+    //any -> OR (SOME)
+    //1)devolver una expresion true o false
+    //2 devuelve un booleano
+    val respuesta =arregloCumpleanos.any{
+        iterador:Int ->
+        return@any iterador <25
+    }
+    print(respuesta)
+
+    val respuestaAll =arregloCumpleanos.all {
+        iterador: Int ->
+        return@all iterador > 65
+    }
+    print (respuestaAll)
+
+    //sacar el promedio de edades
+    //reduce
+    //1) devulve el acumulado
+    //2) en que valor empieza
+    //duvuelve un numero
+    //tenemos dos variable el acumulado y le iteracion
+    //el acumulador empieza en vacio 0
+    //el acumulador no simpre hace operacines con numeros
+    // si trabajamos con string ("a","b","c","d")
+    val respuestarduce= arregloCumpleanos.reduce { acumulado, iteracion ->
+        return@reduce acumulado + iteracion
+
+    }
+    println(respuestarduce)
+    //fold
+    //podemos cambiar para que el acumulador inicialice en lo que desemos
+val respuestaFold= arregloCumpleanos.fold(100,{
+    acumulador, iteracion ->
+    return@fold acumulador - iteracion
+})
+    print(respuestaFold)
+//arreglo desde el final
+//reduceRigth
+    //fold.Right
+    //foreach -> nada
+    //map -> arreglo
+    //filter -> Arreglo
+    // all -> booleano
+    //any-> booleano
+    //reduce-> valor
+    //fold-> valor
+
+    // reducir el daño en 20%
+    // menores a 18 no hacen daño
+    //concatenenar operadores
+    val vidaActual= arregloCumpleanos.map { it * 0.8 }
+            .filter { it >18 }
+            .fold(100.00,{
+                acc,iterador -> acc - iterador})
+            .also{
+                println(it)
+            }
+    println(vidaActual)
+
+
+
+
 
 
 
@@ -147,4 +214,41 @@ fun calcularSueldo(
 // Unit= void que es por defecto
 fun imprimirMenasaje() {
     println(" ")
+
+    //////////////
+    // Clases
+    //clase abstracta
+    //ayudan a crear otras clases que deriben de ella
+    abstract class NumerosJava{
+       val numeroUno:Int
+       val numeroDos:Int
+        constructor(uno:Int,dos:Int){
+            numeroUno=uno
+            numeroDos=dos
+        }
+    }
+//tenemos variables privadas o protected, public no es necesario ya es por defecto
+    abstract class Numeros(val numeroUno:Int,
+                           val numeroDos:Int){
+
+
+    }
+
+    class Suma(
+            uno: Int,
+            dos: Int):Numeros(uno,dos){
+        fun sumar():Int{
+            return this.numeroUno + this.numeroDos
+        }
+    }
+
+    class SumaDos(
+            public var uno: Int, //propiedades
+            public var dos: Int):Numeros(uno,dos){
+        fun sumar():Int{
+            this.uno
+            this.dos
+            return this.numeroUno + this.numeroDos
+        }
+    }
 }
