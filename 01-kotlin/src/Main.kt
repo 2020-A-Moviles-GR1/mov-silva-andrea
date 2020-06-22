@@ -177,19 +177,34 @@ val respuestaFold= arregloCumpleanos.fold(100,{
             }
     println(vidaActual)
 
+    val nuevoNumeroUno= SumarDosNumerosDos(1,1)
+    val nuevoNumeroDos= SumarDosNumerosDos(null,1)
+    val nuevoNumeroTres= SumarDosNumerosDos(1,null)
+    val nuevoNumeroCuatro= SumarDosNumerosDos(null,null)
+
+println(SumarDosNumerosDos.arregloNumeros)
+    SumarDosNumerosDos.arrgloNumero(1)
+   println(SumarDosNumerosDos.arregloNumeros)
+   SumarDosNumerosDos.emliminarNumero(0)
+  println(SumarDosNumerosDos.arregloNumeros)
+   //singleton utiliza en cualquier clase no se intancia el objeto
+
+  //variables nulas
+    var nombre: String? =null
+    nombre = "Andrea"
+    imprimirNombre(nombre)
+    println(nombre.length)
+    if(nombre !=null){
+      println(nombre.length)
+   }
+    //forma mas sencilla
 
 
-
-
-
-
-
-
-
-
-
-
-
+}
+fun imprimirNombre(nombre:String?){
+    println(nombre?.length?.toInt()?.toDouble()) //Elvis Operateor
+    //NULL safe Calls
+    val numeroCracteres=nombre?.length
 }
 //FUNCIONES
 //PALABRA CLAVE FUN
@@ -215,41 +230,78 @@ fun calcularSueldo(
 // Unit= void que es por defecto
 fun imprimirMenasaje() {
     println(" ")
-
-    //////////////
-    // Clases
-    //clase abstracta
-    //ayudan a crear otras clases que deriven de ella
-    abstract class NumerosJava{
-       val numeroUno:Int
-       val numeroDos:Int
-        constructor(uno:Int,dos:Int){
-            numeroUno=uno
-            numeroDos=dos
-        }
+}
+//////////////
+// Clases
+//clase abstracta
+//ayudan a crear otras clases que deriven de ella
+abstract class NumerosJava{
+    var numeroUno:Int
+    var numeroDos:Int
+    constructor(uno:Int,dos:Int){
+        numeroUno=uno
+        numeroDos=dos
     }
+}
 //tenemos variables privadas o protected, public no es necesario ya es por defecto
-    abstract class Numeros(val numeroUno:Int,
-                           val numeroDos:Int){
+abstract class Numeros(var numeroUno:Int,
+                       var numeroDos:Int){
 
 
+}
+
+class Suma(
+        uno: Int,
+        dos: Int):Numeros(uno,dos){
+    fun sumar():Int{
+        return this.numeroUno + this.numeroDos
     }
+}
 
-    class Suma(
-            uno: Int,
-            dos: Int):Numeros(uno,dos){
-        fun sumar():Int{
-            return this.numeroUno + this.numeroDos
+class SumaDos(
+        public var uno: Int, //propiedades
+        public var dos: Int):Numeros(uno,dos){
+    fun sumar():Int{
+        this.uno
+        this.dos
+        return this.numeroUno + this.numeroDos
+    }
+}
+
+
+class SumarDosNumerosDos(
+        uno: Int,
+        dos: Int
+):Numeros(uno, dos){
+    //Siempre que se ejecta un constructor siempre se ejecuta el bloque init
+    //constructor primario y secundarios
+    //init añade logica extra
+    init {
+       println("HOLA INIT")
+   }
+    constructor(uno:Int?,dos:Int)
+    :this(if (uno==null)0 else uno,dos)
+    { print("hola 1")
+    }
+    constructor(uno:Int,dos:Int?)
+            :this(uno,if (dos==null)0 else dos)
+    { print("hola 2")
+    }
+    constructor(uno:Int?,dos:Int?)
+            :this(if (uno==null)0 else uno,if (dos==null)0 else dos)
+    { print("hola 3")
+    }
+    //propiedades estaticas
+    //kotlin maneja con companion onject
+    //utlizaremos para colocar los datos de la base de datos
+    companion object{
+        val arregloNumeros= arrayListOf(1,2,3,4)
+        fun arrgloNumero(nuevoNumero:Int){
+            this.arregloNumeros.add(nuevoNumero)
         }
-    }
-
-    class SumaDos(
-            public var uno: Int, //propiedades
-            public var dos: Int):Numeros(uno,dos){
-        fun sumar():Int{
-            this.uno
-            this.dos
-            return this.numeroUno + this.numeroDos
+        fun emliminarNumero(posicionNumero:Int){
+            this.arregloNumeros.removeAt(posicionNumero)
         }
     }
 }
+
