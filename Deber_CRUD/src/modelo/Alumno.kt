@@ -1,10 +1,9 @@
 package modelo
 
 import java.time.LocalDate
-import java.util.ArrayList
 
 class Alumno(var id_Alumno:Int,
-             var nombre:String,
+             var nombre: String?,
              var sexo:CharArray,
              var fechaNacimiento: LocalDate?) {
 
