@@ -1,15 +1,13 @@
 package controlador
 
 import modelo.Alumno
-import java.io.BufferedReader
-import java.io.File
-import java.io.FileReader
+import java.io.*
 import java.time.LocalDate
-import kotlin.collections.ArrayList
+
 
 class AlumnoControlador {
 
-    fun crearEstudiante(id_Alumno:Int, nombre: String?, sexo:CharArray, fechaNacimiento:LocalDate?){
+    fun crearEstudiante(id_Alumno:Int, nombre: String?, sexo: CharArray?, fechaNacimiento:LocalDate?){
         var arrayAlumno: java.util.ArrayList<String> = arrayListOf()
         arrayAlumno.add(Alumno(id_Alumno,nombre,sexo,fechaNacimiento).toString())
         escribirarchivo(arrayAlumno)
@@ -21,7 +19,7 @@ class AlumnoControlador {
             val openFile= File("Alumnos.txt")
             var cambiotext=tex.toString().replace("[","").replace("]","")
 
-            openFile.writeText(cambiotext+"\n")
+            openFile.appendText(cambiotext+"\n")
 
         }catch (ex:Exception){
             println(ex.message)
@@ -35,12 +33,11 @@ class AlumnoControlador {
             val br: BufferedReader =fr.buffered()
             var linea: String=br.use { it.readText()
             }
-
             arreglolineas=linea.split("\n").toTypedArray().toCollection(ArrayList())
             println("Imprimiendo en leer")
 
             println(arreglolineas)
-            //arreglolineas.removeAt(0)
+            arreglolineas.removeAt(0)
             arreglolineas.removeAt(arreglolineas.size - 1)
             println(arreglolineas)
             fr.close()
@@ -76,70 +73,107 @@ class AlumnoControlador {
 
             if(it.nombre==dat_busco){
                  alu1=true
+                println("Alumno encontrado"+it)
             }
         }
        // println(alu1?.nombre)
         return  alu1
     }
-    fun buscaridAlum(dat_busco:Int): Boolean {
+    fun buscaridAlum(dat_busco:Int): Int {
+     var listAlumnos:ArrayList<Alumno> =listaAlumnos(leerarchivo("Alumnos.txt"))
+        var elemento:List<Alumno> =listAlumnos.filter {
+            return@filter it.id_Alumno == dat_busco
+        }
+        var id:Int=listAlumnos.indexOf(elemento[0])
+        return id
+
+
+    }
+
+    fun buscaridAlum2(dat_busco:Int): Boolean{
         var lineas=leerarchivo("Alumnos.txt")
         var alumnos=listaAlumnos(lineas)
-        var alu1:Boolean=false
+        var alu2:Boolean=false
         //println(alumnos)
         alumnos.forEach{
 
             if(it.id_Alumno==dat_busco){
-                alu1=true
+                alu2=true
+                println("Alumno encontrado"+it)
             }
         }
         // println(alu1?.nombre)
-        return  alu1
+        return  alu2
+
+
     }
-    fun modificarAlumno(nombreAlumModificar: String?, newnombre: String?, newfechaNacimiento: String?){
-        var lineas=leerarchivo("Alumnos.txt")
-        var alumnos=listaAlumnos(lineas)
+    fun modificarAlumno(id: Int, newnombre: String?, newfechaNacimiento: String?){
+        var arraAlumnos: ArrayList<Alumno> =listaAlumnos(leerarchivo("Alumnos.txt"))
+        arraAlumnos[id].nombre=newnombre
+        arraAlumnos[id].fechaNacimiento= LocalDate.parse(newfechaNacimiento)
+        escribir(arraAlumnos,false)
 
-        alumnos.forEach{
 
-            if(it.nombre.toString()==nombreAlumModificar){
-
-                crearEstudiante(it.id_Alumno,newnombre,it.sexo,LocalDate.parse(newfechaNacimiento))
-                //alumnos.remove(it)
-
-            }
         }
 
-    }
+
     fun eliminarAlumno(dat_busco:Int){
-        var lineas=leerarchivo("Alumnos.txt")
-        var alumnos=listaAlumnos(lineas)
-        var alu1:Boolean=false
-        //println(alumnos)
-        alumnos.forEach{
+      val index:Int=buscaridAlum(dat_busco)
+        var arraAlumno:ArrayList<Alumno> =listaAlumnos(leerarchivo("Alumnos.txt"))
+        arraAlumno.removeAt(index)
+        escribir(arraAlumno,false)
 
-            if(it.id_Alumno==dat_busco){
-                println("Imprimiendo indice")
-                println(alumnos.indexOf(it))
-                var indice=alumnos.indexOf(it)
-                alumnos.removeAt(indice)
-                println("Alumno eliminado exitosamente")
+    }
+    fun escribirarchivoEliminar(tex: ArrayList<String?>){
+        try {
+            val openFile= File("Alumnostemporal.txt")
+            var cambiotext=tex.toString().replace("[","").replace("]","")
+
+            openFile.appendText(cambiotext+"\n")
+
+        }catch (ex:Exception){
+            println(ex.message)
+        }
+    }
+    fun leerarchivotemporal(fichero:String): ArrayList<String> {
+        var arreglolineas:ArrayList<String> = arrayListOf()
+        try {
+
+            val fr = FileReader(fichero)
+            val br: BufferedReader =fr.buffered()
+            var linea: String=br.use { it.readText()
             }
-                println(alumnos.toString())
-            var newalumno= listaString(alumnos)
-            escribirarchivo(newalumno)
+            arreglolineas=linea.split("\n").toTypedArray().toCollection(ArrayList())
+            println("Imprimiendo en leer")
 
-        }
-    }
-    fun listaString(listaAlumnos:ArrayList<Alumno>):ArrayList<String>{
-        var arraalumnosString:ArrayList<String> = arrayListOf()
-        listaAlumnos.forEach{
-            arraalumnosString.add(it.id_Alumno.toString())
-            arraalumnosString.add(it.nombre.toString())
-            arraalumnosString.add(it.sexo[0].toString())
-            arraalumnosString.add(it.fechaNacimiento.toString())
+            println(arreglolineas)
+            //arreglolineas.removeAt(0)
+            arreglolineas.removeAt(arreglolineas.size-1)
+            println(arreglolineas)
+            fr.close()
 
+        } catch (e: Exception) {
+            System.out.println("Excepcion leyendo fichero " + fichero.toString() + ": " + e)
         }
-        //println(arraalumnos)
-        return arraalumnosString
+        return arreglolineas
     }
-}
+    fun escribir(lista: List<Any>, append: Boolean): Unit{
+        val archivo: File = File("Alumnos.txt")
+        val fileOutputStram: FileOutputStream = FileOutputStream(archivo, append)
+        fileOutputStram
+                .bufferedWriter()
+                .use{ out ->
+                    lista.forEach{
+                        instancia ->
+                        out.write(instancia.toString()+ "\n")
+                    }
+                }
+
+        //println("Writed to file: ${nombreArchivo}")
+    }
+
+    }
+
+
+
+

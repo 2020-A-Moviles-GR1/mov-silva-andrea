@@ -4,7 +4,7 @@ class Aulas(
         var id_aula: Int,
         var materia: String?,
         var numAlumnos: Int,
-        var salonDisponible:Boolean,
+        var salonDisponible: Boolean?,
         var idEstudiante:Int
 ){
 

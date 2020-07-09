@@ -4,24 +4,29 @@ import java.time.LocalDate
 
 
 fun main(args:Array<String>){
-  /*  println("--------------Menu-------------")
-    println("Opciones para seleccionar:")
-    println("1) Crear Alumno")
-    println("2) Buscar Alumno")
-   println("3) Modificar Alumno")
-   println("4) Eliminar Alumno")
-    println("5) Crear Aula")
-    println("6) Buscar Aula")
-    println("7) Modificar Aula")
-    println("8) Eliminar Aula")
-    println("9) SALIR")
-   println("Ingrese la opcion que desea--->")
-   val line = readLine()
+
 
    // if (line != null) {
-       menu(line)
+   var line:String=""
+    while (line != "9"){
+        println("--------------Menu-------------")
+        println("Opciones para seleccionar:")
+        println("1) Crear Alumno")
+        println("2) Buscar Alumno")
+        println("3) Modificar Alumno")
+        println("4) Eliminar Alumno")
+        println("5) Crear Aula")
+        println("6) Buscar Aula")
+        println("7) Modificar Aula")
+        println("8) Eliminar Aula")
+        println("9) SALIR")
+        println("Ingrese la opcion que desea--->")
+         line = readLine().toString()
+        menu(line)
+    }
+
     //}
-*/
+
 
     //var estudiantes=AlumnoControlador().buscarAlumnos("Andrea")
     //println(estudiantes.toString())
@@ -30,7 +35,9 @@ fun main(args:Array<String>){
    // var aula= Aulas()
     //aula.crearAula()
     //aula.buscarAula("mate")
-    var estudiantes=AlumnoControlador().eliminarAlumno(1)
+    //var estudiantes=AlumnoControlador().modificarAlumno("Maria","Susana","1994-10-23")
+
+//   var aulas= AulasControlador().modificarAulas("Lenguaje" ,"Naturales","false","12")
 }
 fun menu(opc: String?){
     var alumno=AlumnoControlador()
@@ -81,18 +88,26 @@ fun menu(opc: String?){
         }
         "3" ->{
             println("modificar aulas y alumnos")
-            println("Ingrese el nombre del alumno que desea modificar ->")
+            println("Ingrese el id del alumno que desea modificar ->")
             var modificar= readLine()
             println("Ingrese el nuevo nombre del alumno->")
             var newnombre= readLine()
             println("Ingrese la nueva Fecha de nacimiento del estudiante->")
             var newfecha= readLine()
           //  if (modificar != null && newnombre != null && newfecha != null) {
-                alumno.modificarAlumno(modificar,newnombre,newfecha)
+            if (modificar != null) {
+                alumno.modificarAlumno(modificar.toInt(),newnombre,newfecha)
+            }
            // }
         }
         "4"->{
             println("eliminar aulas y alumnos")
+
+            println("Ingrese el id del alumno que desea eliminar ->")
+            var elimina= readLine()
+            if (elimina != null) {
+                println(alumno.eliminarAlumno(elimina.toInt()))
+            }
         }
         "5"->{
             println("Creando alumno")
@@ -143,7 +158,7 @@ fun menu(opc: String?){
         }
         "7"->{
             println("modificar aulas")
-            println("Ingrese el nombre de la materia que quiere modificar ->")
+            println("Ingrese el id de la materia que quiere modificar ->")
             var modificar= readLine()
             println("Ingrese el nuevo nombre de la materia->")
             var newnombremateria= readLine()
@@ -152,8 +167,19 @@ fun menu(opc: String?){
             println("Ingrese la nueva disponibilidad del salon->")
             var newsalondisponible= readLine()
             //  if (modificar != null && newnombre != null && newfecha != null) {
-            aula.modificarAulas(modificar,newnombremateria,newnumalumnos,newsalondisponible)
+            if (modificar != null) {
+                aula.modificarAula(modificar.toInt(),newnombremateria,newnumalumnos,newsalondisponible)
+            }
             // }
+        }
+        "8"->{
+            println("eliminar aulas y alumnos")
+
+            println("Ingrese el id del aula que desea eliminar ->")
+            var elimina= readLine()
+            if (elimina != null) {
+                println(aula.eliminarAula(elimina.toInt()))
+            }
         }
         }
 
