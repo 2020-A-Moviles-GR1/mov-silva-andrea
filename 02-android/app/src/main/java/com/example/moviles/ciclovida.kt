@@ -2,6 +2,7 @@ package com.example.moviles
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.util.Log
 import kotlinx.android.synthetic.main.activity_ciclovida.*
 
@@ -53,5 +54,24 @@ class ciclovida : AppCompatActivity() {
         super.onDestroy()
         Log.i("Activity","OnDestroy")
 
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        Log.i("Activity", "onSaveInstanceState")
+        outState?.run {
+            putInt("numeroActualGuardado",numeroActual)
+        }
+        super.onSaveInstanceState(outState)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        Log.i("Activity", "onRestoreInstancesState")
+        val valorRecuoerdo=savedInstanceState
+            ?.getInt("numeroActualGuardado")
+        if (valorRecuoerdo != null){
+            this.numeroActual=valorRecuoerdo
+            tv_num.text=this.numeroActual.toString()
+        }
     }
 }
