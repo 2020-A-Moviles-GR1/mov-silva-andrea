@@ -86,16 +86,7 @@ class AlumnoControlador {
        // println(alu1?.nombre)
         return  alu1
     }
-    fun buscaridAlum(dat_busco:Int): Int {
-     var listAlumnos:ArrayList<Alumno> =listaAlumnos(leerarchivo("Alumnos.txt"))
-        var elemento:List<Alumno> =listAlumnos.filter {
-            return@filter it.id_Alumno == dat_busco
-        }
-        var id:Int=listAlumnos.indexOf(elemento[0])
-        return id
 
-
-    }
 
     fun buscaridAlum2(dat_busco:Int): Boolean{
         var lineas=leerarchivo("Alumnos.txt")
@@ -185,43 +176,7 @@ class AlumnoControlador {
             println(ex.message)
         }
     }
-    fun leerarchivotemporal(fichero:String): ArrayList<String> {
-        var arreglolineas:ArrayList<String> = arrayListOf()
-        try {
-
-            val fr = FileReader(fichero)
-            val br: BufferedReader =fr.buffered()
-            var linea: String=br.use { it.readText()
-            }
-            arreglolineas=linea.split("\n").toTypedArray().toCollection(ArrayList())
-            println("Imprimiendo en leer")
-
-            println(arreglolineas)
-            //arreglolineas.removeAt(0)
-            arreglolineas.removeAt(arreglolineas.size-1)
-            println(arreglolineas)
-            fr.close()
-
-        } catch (e: Exception) {
-            System.out.println("Excepcion leyendo fichero " + fichero.toString() + ": " + e)
-        }
-        return arreglolineas
-    }
-    fun escribir(lista: List<Any>, append: Boolean): Unit{
-        val archivo: File = File("Alumnos.txt")
-        val fileOutputStram: FileOutputStream = FileOutputStream(archivo, append)
-        fileOutputStram
-                .bufferedWriter()
-                .use{ out ->
-                    lista.forEach{
-                        instancia ->
-                        out.write(instancia.toString()+ "\n")
-                    }
-                }
-
-        //println("Writed to file: ${nombreArchivo}")
-    }
-
+  
     }
 
 
