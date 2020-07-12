@@ -35,9 +35,10 @@ fun main(args:Array<String>){
    // var aula= Aulas()
     //aula.crearAula()
     //aula.buscarAula("mate")
-    //var estudiantes=AlumnoControlador().modificarAlumno("Maria","Susana","1994-10-23")
+   // var estudiantes=AlumnoControlador().eliminarcascada(3)
 
-//   var aulas= AulasControlador().modificarAulas("Lenguaje" ,"Naturales","false","12")
+// var aulas= AulasControlador().modificarAulas("Lenguaje" ,"Naturales","false","12")
+
 }
 fun menu(opc: String?){
     var alumno=AlumnoControlador()
@@ -106,7 +107,7 @@ fun menu(opc: String?){
             println("Ingrese el id del alumno que desea eliminar ->")
             var elimina= readLine()
             if (elimina != null) {
-                println(alumno.eliminarAlumno(elimina.toInt()))
+                println(alumno.eliminarcascada(elimina.toInt()))
             }
         }
         "5"->{

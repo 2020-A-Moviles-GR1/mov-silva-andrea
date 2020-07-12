@@ -86,7 +86,7 @@ class AlumnoControlador {
        // println(alu1?.nombre)
         return  alu1
     }
-
+ 
 
     fun buscaridAlum2(dat_busco:Int): Boolean{
         var lineas=leerarchivo("Alumnos.txt")
@@ -176,7 +176,23 @@ class AlumnoControlador {
             println(ex.message)
         }
     }
-  
+
+    fun eliminarcascada(dat_busco:Int){
+        var arraAlumnos: ArrayList<Alumno> =listaAlumnos(leerarchivo("Alumnos.txt"))
+        println("imprimo array")
+        println(arraAlumnos.toString())
+
+        arraAlumnos.removeIf {
+            println("Entro al removeif")
+            it.id_Alumno==dat_busco}
+        val bw = BufferedWriter(FileWriter("Alumnos.txt"))
+        bw.write("");
+        bw.close();
+        escribirModifica(arraAlumnos)
+        var aulaprueba = AulasControlador()
+        aulaprueba.eliminarAulacascada(dat_busco)
+    }
+
     }
 
 

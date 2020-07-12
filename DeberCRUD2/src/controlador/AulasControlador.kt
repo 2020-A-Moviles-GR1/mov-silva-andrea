@@ -44,15 +44,15 @@ class AulasControlador {
             val fr = FileReader(fichero)
             val br: BufferedReader = fr.buffered()
             var linea: String = br.use {
-                it.readText()
+                it.readText().trim()
             }
 
             arreglolineas = linea.split("\n").toTypedArray().toCollection(ArrayList())
             println("Imprimiendo en leer")
 
             println(arreglolineas)
-            arreglolineas.removeAt(0)
-            arreglolineas.removeAt(arreglolineas.size - 1)
+           // arreglolineas.removeAt(0)
+           // arreglolineas.removeAt(arreglolineas.size - 1)
             println(arreglolineas)
             fr.close()
 
@@ -66,14 +66,14 @@ class AulasControlador {
         var arraaulas: ArrayList<Aulas> = arrayListOf()
         listalineas.forEach { value ->
             var arrayDatos: Array<String> = value.split(",").toTypedArray()
-            arrayDatos.forEach { ve -> println(ve.toString()) }
+            value.trim()
 
             arraaulas.add(Aulas(
-                    arrayDatos[0].toInt(),
-                    arrayDatos[1],
-                    arrayDatos[2].toInt(),
-                    arrayDatos[3].toBoolean(),
-                    arrayDatos[4].toInt()
+                    arrayDatos[0].trim().toInt(),
+                    arrayDatos[1].trim(),
+                    arrayDatos[2].trim().toInt(),
+                    arrayDatos[3].trim().toBoolean(),
+                    arrayDatos[4].trim().toInt()
 
             ))
         }
@@ -84,34 +84,20 @@ class AulasControlador {
     fun buscarAulas(dat_busco: String): Boolean {
         var lineas = leerarchivo("Aulas.txt")
         var aulas = listaAulas(lineas)
-        var alu1: Boolean = false
+        var aul1: Boolean = false
         //println(alumnos)
         aulas.forEach {
             if (it.materia == dat_busco) {
-                alu1 = true
+                aul1 = true
+                println("Aula encontrada"+it)
             }
             // println(alu1?.nombre)
 
         }
-        return alu1
+        return aul1
     }
 
-
-    fun listaString(listaAlumnos: ArrayList<Aulas>): ArrayList<String> {
-        var arraaulassString: ArrayList<String> = arrayListOf()
-        listaAlumnos.forEach {
-            arraaulassString.add(it.id_aula.toString())
-            arraaulassString.add(it.materia.toString())
-            arraaulassString.add(it.numAlumnos.toString())
-            arraaulassString.add(it.salonDisponible.toString())
-            arraaulassString.add(it.idEstudiante.toString())
-
-        }
-        //println(arraalumnos)
-        return arraaulassString
-    }
-
-    fun buscaridAula(dat_busco:Int): Int {
+  /*  fun buscaridAula(dat_busco:Int): Int {
         var listAlumnos:ArrayList<Aulas> =listaAulas(leerarchivo("Aulas.txt"))
         var elemento:List<Aulas> =listAlumnos.filter {
             return@filter it.id_aula == dat_busco
@@ -120,8 +106,7 @@ class AulasControlador {
         return id
 
 
-    }
-
+    }*/
     fun buscaridAlum2(dat_busco:Int): Boolean{
         var lineas=leerarchivo("Aulas.txt")
         var alumnos=listaAulas(lineas)
@@ -139,41 +124,96 @@ class AulasControlador {
 
 
     }
+
+
     fun modificarAula(id: Int, newmateria: String?, newnumAlumnos: String?,newSalondisponible:String?){
-        var arraAula: ArrayList<Aulas> =listaAulas(leerarchivo("Aulas.txt"))
-        arraAula[id].materia=newmateria
-        if (newnumAlumnos != null) {
-            arraAula[id].numAlumnos= newnumAlumnos.toInt()
+        var arraAulas: ArrayList<Aulas> =listaAulas(leerarchivo("Aulas.txt"))
+        arraAulas.map{
+
+            if(it.id_aula==id){
+                var indice= arraAulas.indexOf(it)
+                arraAulas[indice].materia=newmateria
+                arraAulas[indice].numAlumnos= newnumAlumnos!!.toInt()
+                arraAulas[indice].salonDisponible= newSalondisponible!!.toBoolean()
+
+
+                println("imprimiendo dentro del if")
+                println(arraAulas.toString())
+
+            }
+            println("imprimiendo uera del if")
+            println(arraAulas.toString())
+
         }
-        if (newSalondisponible != null) {
-            arraAula[id].salonDisponible= newSalondisponible.toBoolean()
-        }
-        escribir(arraAula,false)
+        println("impimiendo fuera de map")
+        println(arraAulas.toString())
+        val bw = BufferedWriter(FileWriter("Aulas.txt"))
+        bw.write("");
+        bw.close();
+        escribirModifica(arraAulas)
+
 
 
     }
+
+
 
 
     fun eliminarAula(dat_busco:Int){
-        val index:Int=buscaridAula(dat_busco)
-        var arraAula:ArrayList<Aulas> =listaAulas(leerarchivo("Aulas.txt"))
-        arraAula.removeAt(index)
-        escribir(arraAula,false)
+        var arraAulas: ArrayList<Aulas> =listaAulas(leerarchivo("Aulas.txt"))
+        println("imprimo array")
+        println(arraAulas.toString())
+        arraAulas.removeIf {
+            println("Entro al removeif")
+            it.id_aula==dat_busco }
+        val bw = BufferedWriter(FileWriter("Aulas.txt"))
+        bw.write("");
+        bw.close();
+        escribirModifica(arraAulas)
 
     }
 
 
-    fun escribir(lista: List<Any>, append: Boolean): Unit{
-        val archivo: File = File("Aulas.txt")
-        val fileOutputStram: FileOutputStream = FileOutputStream(archivo, append)
-        fileOutputStram
-                .bufferedWriter()
-                .use{ out ->
-                    lista.forEach{
-                        instancia ->
-                        out.write(instancia.toString()+ "\n")
-                    }
-                }
+    fun escribirModifica(aulamodificado:ArrayList<Aulas>){
+        var  arrayAulas: java.util.ArrayList<String> =arrayListOf()
+
+        println("Impimirnedo en modifica......")
+        println(aulamodificado.toString())
+        aulamodificado.forEach {
+            arrayAulas= arrayListOf(it.idEstudiante.toString(),it.materia.toString(), it.numAlumnos.toString(),
+                    it.salonDisponible.toString(),it.idEstudiante.toString())
+            println("IMPIMIENDO ALUMNO MODIFICADO......")
+            println(arrayAulas.toString())
+            escribirarchivoEliminar(arrayAulas)
+        }
+
+
+
+    }
+    fun escribirarchivoEliminar(tex: java.util.ArrayList<String>){
+        try {
+            val openFile= File("Aulas.txt")
+            var cambiotext=tex.toString().replace("[","").replace("]","")
+
+            openFile.appendText(cambiotext+"\n")
+
+        }catch (ex:Exception){
+            println(ex.message)
+        }
+    }
+    fun eliminarAulacascada(idAlum:Int){
+        var arraAulas: ArrayList<Aulas> =listaAulas(leerarchivo("Aulas.txt"))
+            println("imprimo array")
+            println(arraAulas.toString())
+            arraAulas.removeIf {
+                println("Entro al removeif")
+                it.idEstudiante==idAlum}
+            val bw = BufferedWriter(FileWriter("Aulas.txt"))
+            bw.write("");
+            bw.close();
+            println("impimiendo aula borrada......")
+          println(arraAulas)
+            escribirModifica(arraAulas)
 
 
     }
