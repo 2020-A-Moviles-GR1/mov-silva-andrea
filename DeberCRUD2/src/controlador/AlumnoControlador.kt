@@ -31,14 +31,16 @@ class AlumnoControlador {
 
             val fr = FileReader(fichero)
             val br: BufferedReader =fr.buffered()
-            var linea: String=br.use { it.readText()
+            var linea: String=br.use { it.readText().trim()
+
             }
+
             arreglolineas=linea.split("\n").toTypedArray().toCollection(ArrayList())
             println("Imprimiendo en leer")
 
             println(arreglolineas)
-            arreglolineas.removeAt(0)
-            arreglolineas.removeAt(arreglolineas.size - 1)
+            //arreglolineas.removeAt(0)
+            //arreglolineas.removeAt(arreglolineas.size - 1)
             println(arreglolineas)
             fr.close()
 
@@ -49,19 +51,24 @@ class AlumnoControlador {
     }
     fun listaAlumnos(listalineas:ArrayList<String>):ArrayList<Alumno>{
         var arraalumnos:ArrayList<Alumno> = arrayListOf()
+        listalineas
         listalineas.forEach{
            value-> var arrayDatos: Array<String> =value.split(",").toTypedArray()
-            arrayDatos.forEach { ve-> println(ve.toString()) }
+           value.trim()
+            println("imprimiendo datos sin espacios")
+            println(value)
+
 
             arraalumnos.add(Alumno(
-                    arrayDatos[0].toInt(),
-                    arrayDatos[1],
-                    arrayDatos[2].toCharArray(),
-                    LocalDate.parse(arrayDatos[3])
+                    arrayDatos[0].trim().toInt(),
+                    arrayDatos[1].trim(),
+                    arrayDatos[2].trim().toCharArray(),
+                    LocalDate.parse(arrayDatos[3].trim())
 
             ))
         }
-        //println(arraalumnos)
+        println("impimiendo array en lectura....")
+        println(arraalumnos)
         return arraalumnos
     }
     fun buscarAlumnos(dat_busco:String): Boolean {
@@ -109,24 +116,67 @@ class AlumnoControlador {
     }
     fun modificarAlumno(id: Int, newnombre: String?, newfechaNacimiento: String?){
         var arraAlumnos: ArrayList<Alumno> =listaAlumnos(leerarchivo("Alumnos.txt"))
-        arraAlumnos[id].nombre=newnombre
-        arraAlumnos[id].fechaNacimiento= LocalDate.parse(newfechaNacimiento)
-        escribir(arraAlumnos,false)
+        arraAlumnos.map{
+
+            if(it.id_Alumno==id){
+                var indice= arraAlumnos.indexOf(it)
+                arraAlumnos[indice].nombre=newnombre
+                arraAlumnos[indice].fechaNacimiento= LocalDate.parse(newfechaNacimiento)
+                println("imprimiendo dentro del if")
+                println(arraAlumnos.toString())
+
+            }
+            println("imprimiendo uera del if")
+            println(arraAlumnos.toString())
+
+        }
+        println("impimiendo fuera de map")
+        println(arraAlumnos.toString())
+        val bw = BufferedWriter(FileWriter("Alumnos.txt"))
+        bw.write("");
+        bw.close();
+        escribirModifica(arraAlumnos)
+
 
 
         }
 
 
     fun eliminarAlumno(dat_busco:Int){
-      val index:Int=buscaridAlum(dat_busco)
-        var arraAlumno:ArrayList<Alumno> =listaAlumnos(leerarchivo("Alumnos.txt"))
-        arraAlumno.removeAt(index)
-        escribir(arraAlumno,false)
+        var arraAlumnos: ArrayList<Alumno> =listaAlumnos(leerarchivo("Alumnos.txt"))
+        println("imprimo array")
+        println(arraAlumnos.toString())
+        arraAlumnos.removeIf {
+            println("Entro al removeif")
+             it.id_Alumno==dat_busco         }
+        val bw = BufferedWriter(FileWriter("Alumnos.txt"))
+        bw.write("");
+        bw.close();
+        escribirModifica(arraAlumnos)
 
     }
-    fun escribirarchivoEliminar(tex: ArrayList<String?>){
+
+
+
+
+    fun escribirModifica(alumnomodificado:ArrayList<Alumno>){
+       var  arrayAlumno: java.util.ArrayList<String> =arrayListOf()
+
+        println("Impimirnedo en modifica......")
+        println(alumnomodificado.toString())
+        alumnomodificado.forEach {
+            arrayAlumno= arrayListOf(it.id_Alumno.toString(),it.nombre.toString(), it.sexo!![0].toString(),it.fechaNacimiento.toString())
+            println("IMPIMIENDO ALUMNO MODIFICADO......")
+            println(arrayAlumno.toString())
+            escribirarchivoEliminar(arrayAlumno)
+        }
+
+
+
+    }
+    fun escribirarchivoEliminar(tex: java.util.ArrayList<String>){
         try {
-            val openFile= File("Alumnostemporal.txt")
+            val openFile= File("Alumnos.txt")
             var cambiotext=tex.toString().replace("[","").replace("]","")
 
             openFile.appendText(cambiotext+"\n")
