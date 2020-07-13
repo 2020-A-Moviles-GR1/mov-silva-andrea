@@ -1,13 +1,14 @@
 import controlador.AlumnoControlador
 import controlador.AulasControlador
 import java.time.LocalDate
+import javax.swing.JOptionPane
 
 
 fun main(args:Array<String>){
 
 
    // if (line != null) {
-   var line:String=""
+  /* var line:String=""
     while (line != "9"){
         println("--------------Menu-------------")
         println("Opciones para seleccionar:")
@@ -26,7 +27,7 @@ fun main(args:Array<String>){
     }
 
     //}
-
+*/
 
     //var estudiantes=AlumnoControlador().buscarAlumnos("Andrea")
     //println(estudiantes.toString())
@@ -38,6 +39,7 @@ fun main(args:Array<String>){
    // var estudiantes=AlumnoControlador().eliminarcascada(3)
 
 // var aulas= AulasControlador().modificarAulas("Lenguaje" ,"Naturales","false","12")
+    interfaz()
 
 }
 fun menu(opc: String?){
@@ -104,7 +106,7 @@ fun menu(opc: String?){
         "4"->{
             println("eliminar aulas y alumnos")
 
-            println("Ingrese el id del alumno que desea eliminar ->")
+            println("c ->")
             var elimina= readLine()
             if (elimina != null) {
                 println(alumno.eliminarcascada(elimina.toInt()))
@@ -184,7 +186,147 @@ fun menu(opc: String?){
         }
         }
 
+
+
     }
+fun interfaz(){
+    var alumno=AlumnoControlador()
+    var aula =AulasControlador()
+    val options = arrayOf("Alumnos", "Aulas")
+    val seleccion=JOptionPane.showOptionDialog(null, "Seleccione una opción", "Menu principal", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE,null, options, options[0])
+    println(seleccion)
+    if(seleccion == 0){
+        val options = arrayOf("Crear", "Buscar","Modificar","Eliminar")
+        val select1=JOptionPane.showOptionDialog(null, "Seleccione una opción", "Menu Alumnos", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE,null, options, options[0])
+        val sexo = arrayOf(
+                "Femenino","Masculino"
+        )
+        if(select1==0){
+            var id_Alumno:Int=0
+            var nombre:String=""
+            var sexo1:CharArray= charArrayOf()
+            var fechaNacimiento: LocalDate?=null
+            val respuesta1 = JOptionPane.showInputDialog(null, "Escriba el ID del estudiante")
+            id_Alumno=respuesta1.toInt()
+            val respuesta2 = JOptionPane.showInputDialog(null, "Escriba el Nombre del estudiante")
+            nombre=respuesta2
+            val respuesta3 = JOptionPane.showInputDialog(null, "Seleccione el sexo del estudiante", "Sexo", JOptionPane.DEFAULT_OPTION,null, sexo,sexo.get(0)) as String
+            sexo1=respuesta3.toCharArray()
+            val respuesta4 = JOptionPane.showInputDialog(null, "Escriba la fecha de nacimiento con el formato yyyy-MM-dd")
+            fechaNacimiento= LocalDate.parse(respuesta4)
+            if (alumno.crearEstudiante(id_Alumno,nombre,sexo1,fechaNacimiento)){
+                JOptionPane.showMessageDialog(null, "Alumno creado exitosamente");
+            }else{
+                JOptionPane.showMessageDialog(null, "El alumno no pudo ser creado", "Error!!", JOptionPane.ERROR_MESSAGE);
+            }
+
+        }else{
+            if (select1==1){
+                val respuestabus = JOptionPane.showInputDialog(null, "Escriba el Nombre del estudiante")
+               var buscar=respuestabus
+                if(alumno.buscarAlumnos(buscar)){
+                    JOptionPane.showMessageDialog(null, "Alumno encontrado"+buscar);
+                    interfaz()
+                }else{
+                    JOptionPane.showMessageDialog(null, "El alumno no exite en el archivo", "Error!!", JOptionPane.ERROR_MESSAGE);
+                    interfaz()
+                }
+            }else{
+                if (select1 == 2){
+                    val respuesta1 = JOptionPane.showInputDialog(null, "Ingrese el id del estudiante que quiere modificar")
+                    var modifica =respuesta1.toInt()
+                    val respuesta2 = JOptionPane.showInputDialog(null, "Ingrese el nuevo nombre del alumno")
+                    var newnombre=respuesta2
+                    val respuesta3 = JOptionPane.showInputDialog(null, "Ingrese la nueva Fecha de nacimiento del estudiante con el formato yyyy-MM-dd")
+                    var newfecha=respuesta3
+                    if (alumno.modificarAlumno(modifica.toInt(),newnombre,newfecha)){
+                        JOptionPane.showMessageDialog(null, "Alumno modificado exitosamente");
+                    }else{
+                        JOptionPane.showMessageDialog(null, "El alumno no se pudo modificar", "Error!!", JOptionPane.ERROR_MESSAGE);
+                    }
+
+                }else{
+                    if (select1==3){
+                        val elimina = JOptionPane.showInputDialog(null, "Escriba el id Nombre del estudiante que quiere eliminar")
+                       if( alumno.eliminarcascada(elimina.toInt())){
+                           JOptionPane.showMessageDialog(null, "Alumno eliminado exitosamente");
+                       }else{
+                           JOptionPane.showMessageDialog(null, "El alumno no pudo ser modificado", "Error!!", JOptionPane.ERROR_MESSAGE);
+                       }
+
+                    }
+                }
+            }
+        }
+    }else{
+        val options = arrayOf("Crear", "Buscar","Modificar","Eliminar")
+        val select2=JOptionPane.showOptionDialog(null, "Seleccione una opción", "Menu Aulas", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE,null, options, options[0])
+        if(select2==0){
+            var id_Aula:Int=0
+            var materia:String=""
+            var numAlumnos:Int= 0
+            var salonDisponible:Boolean= false
+            var idEstudiante:Int=0
+            val respuesta1 = JOptionPane.showInputDialog(null, "Ingrese el Id del aula")
+            id_Aula=respuesta1.toInt()
+            val respuesta2 = JOptionPane.showInputDialog(null, "Ingrese el nombre de la materia")
+            materia=respuesta2
+            val respuesta3 = JOptionPane.showInputDialog(null, "Ingrese el numero de alumnos en el aula")
+            numAlumnos=respuesta3.toInt()
+            val respuesta4 = JOptionPane.showInputDialog(null, "Ingrese si el salon esta disponible")
+            salonDisponible=respuesta4.toBoolean()
+            val respuesta5 = JOptionPane.showInputDialog(null, "Ingrese el id del estudante que se encuntra en el aula")
+            idEstudiante=respuesta5.toInt()
+            if (aula.crearAula(id_Aula,materia,numAlumnos,salonDisponible,idEstudiante)){
+                JOptionPane.showMessageDialog(null, "Aula creada exitosamente");
+            }else{
+                JOptionPane.showMessageDialog(null, "El alumno no pudo ser creado", "Error!!", JOptionPane.ERROR_MESSAGE);
+            }
+
+        }else{
+            if (select2==1){
+                val respuestabus = JOptionPane.showInputDialog(null, "Ingrese la materia que quiere buscar")
+                var buscar=respuestabus
+                if(aula.buscarAulas(buscar)){
+                    JOptionPane.showMessageDialog(null, "Alumno encontrado"+buscar);
+                }else{
+                    JOptionPane.showMessageDialog(null, "El alumno no exite en el archivo", "Error!!", JOptionPane.ERROR_MESSAGE);
+                }
+            }else{
+                if (select2 == 2){
+                    val respuesta1 = JOptionPane.showInputDialog(null, "Ingrese el id del alumno que desea modificar")
+                    var modifica =respuesta1.toInt()
+                    val respuesta2 = JOptionPane.showInputDialog(null, "Ingrese el nuevo nombre de la materia")
+                    var newnombremateria=respuesta2
+                    val respuesta3 = JOptionPane.showInputDialog(null, "Ingrese la nueva cantidad de alumnos")
+                    var newnumalumnos=respuesta3
+                    val respuesta4 = JOptionPane.showInputDialog(null, "Ingrese la nueva disponibilidad del salon")
+                    var newsalondisponible=respuesta4
+                    if (aula.modificarAula(modifica.toInt(),newnombremateria,newnumalumnos,newsalondisponible)){
+                        JOptionPane.showMessageDialog(null, "Aula modificado exitosamente");
+                    }else{
+                        JOptionPane.showMessageDialog(null, "El aula no pudo modificarse", "Error!!", JOptionPane.ERROR_MESSAGE);
+                    }
+
+                }else{
+                    if (select2==3){
+                        val elimina = JOptionPane.showInputDialog(null, "Ingrese el id del aula que desea eliminar")
+                        if(aula.eliminarAula(elimina.toInt())){
+                            JOptionPane.showMessageDialog(null, "Alumno modificado exitosamente");
+                        }else{
+                            JOptionPane.showMessageDialog(null, "El alumno no pudo ser modificado", "Error!!", JOptionPane.ERROR_MESSAGE);
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+
+
 
 
 

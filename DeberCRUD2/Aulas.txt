@@ -1,1 +1,0 @@
-2, Lenaguje, 23, true, 2

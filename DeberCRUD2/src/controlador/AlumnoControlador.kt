@@ -7,10 +7,13 @@ import java.time.LocalDate
 
 class AlumnoControlador {
 
-    fun crearEstudiante(id_Alumno:Int, nombre: String?, sexo: CharArray?, fechaNacimiento:LocalDate?){
+    fun crearEstudiante(id_Alumno:Int, nombre: String?, sexo: CharArray?, fechaNacimiento:LocalDate?): Boolean {
+        var creado:Boolean=false
         var arrayAlumno: java.util.ArrayList<String> = arrayListOf()
         arrayAlumno.add(Alumno(id_Alumno,nombre,sexo,fechaNacimiento).toString())
         escribirarchivo(arrayAlumno)
+        creado=true
+        return creado
 
     }
 
@@ -105,7 +108,8 @@ class AlumnoControlador {
 
 
     }
-    fun modificarAlumno(id: Int, newnombre: String?, newfechaNacimiento: String?){
+    fun modificarAlumno(id: Int, newnombre: String?, newfechaNacimiento: String?): Boolean {
+        var modifica:Boolean=false
         var arraAlumnos: ArrayList<Alumno> =listaAlumnos(leerarchivo("Alumnos.txt"))
         arraAlumnos.map{
 
@@ -127,8 +131,9 @@ class AlumnoControlador {
         bw.write("");
         bw.close();
         escribirModifica(arraAlumnos)
+        modifica=true
 
-
+    return modifica
 
         }
 
@@ -177,7 +182,8 @@ class AlumnoControlador {
         }
     }
 
-    fun eliminarcascada(dat_busco:Int){
+    fun eliminarcascada(dat_busco:Int): Boolean {
+        var elimino:Boolean=false
         var arraAlumnos: ArrayList<Alumno> =listaAlumnos(leerarchivo("Alumnos.txt"))
         println("imprimo array")
         println(arraAlumnos.toString())
@@ -191,6 +197,8 @@ class AlumnoControlador {
         escribirModifica(arraAlumnos)
         var aulaprueba = AulasControlador()
         aulaprueba.eliminarAulacascada(dat_busco)
+        elimino=true
+        return elimino
     }
 
     }

@@ -7,10 +7,11 @@ import java.time.LocalDate
 
 
 class AulasControlador {
-    fun crearAula(id_aula: Int, materia: String?, numAlumnos: Int, salonDisponible: Boolean?, idEstudiante: Int) {
+    fun crearAula(id_aula: Int, materia: String?, numAlumnos: Int, salonDisponible: Boolean?, idEstudiante: Int): Boolean {
         var arrayAula: java.util.ArrayList<String> = arrayListOf()
         var alumprueba = AlumnoControlador()
         var existe = alumprueba.buscaridAlum2(idEstudiante)
+        var creado:Boolean=false
         println("Imprimiendo id alumno")
         println(idEstudiante)
         println(existe)
@@ -18,10 +19,12 @@ class AulasControlador {
         if (existe) {
             arrayAula.add(Aulas(id_aula, materia, numAlumnos, salonDisponible, idEstudiante).toString())
             escribirarchivo(arrayAula)
+            creado=true
         } else {
             println("Alumno no existe no se puede crear el aula")
+            creado=false
         }
-
+        return creado
 
     }
 
@@ -126,8 +129,9 @@ class AulasControlador {
     }
 
 
-    fun modificarAula(id: Int, newmateria: String?, newnumAlumnos: String?,newSalondisponible:String?){
+    fun modificarAula(id: Int, newmateria: String?, newnumAlumnos: String?,newSalondisponible:String?): Boolean {
         var arraAulas: ArrayList<Aulas> =listaAulas(leerarchivo("Aulas.txt"))
+        var modificado:Boolean=false
         arraAulas.map{
 
             if(it.id_aula==id){
@@ -151,16 +155,18 @@ class AulasControlador {
         bw.write("");
         bw.close();
         escribirModifica(arraAulas)
+        modificado=true
 
-
+    return modificado
 
     }
 
 
 
 
-    fun eliminarAula(dat_busco:Int){
+    fun eliminarAula(dat_busco:Int): Boolean {
         var arraAulas: ArrayList<Aulas> =listaAulas(leerarchivo("Aulas.txt"))
+        var elima:Boolean=false
         println("imprimo array")
         println(arraAulas.toString())
         arraAulas.removeIf {
@@ -170,6 +176,8 @@ class AulasControlador {
         bw.write("");
         bw.close();
         escribirModifica(arraAulas)
+        elima=true
+        return elima
 
     }
 
