@@ -1,0 +1,16 @@
+package modelo
+
+import java.time.LocalDate
+
+class Alumno(var id_Alumno:Int,
+             var nombre: String?,
+             var sexo: CharArray?,
+             var fechaNacimiento: LocalDate?) {
+
+override fun toString():String{
+    return "${id_Alumno},${nombre},${sexo?.get(0)},${fechaNacimiento}"
+}
+
+
+
+}
