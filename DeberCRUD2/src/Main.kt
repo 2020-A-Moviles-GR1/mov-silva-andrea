@@ -216,8 +216,10 @@ fun interfaz(){
             fechaNacimiento= LocalDate.parse(respuesta4)
             if (alumno.crearEstudiante(id_Alumno,nombre,sexo1,fechaNacimiento)){
                 JOptionPane.showMessageDialog(null, "Alumno creado exitosamente");
+                interfaz()
             }else{
                 JOptionPane.showMessageDialog(null, "El alumno no pudo ser creado", "Error!!", JOptionPane.ERROR_MESSAGE);
+                interfaz()
             }
 
         }else{
@@ -241,8 +243,10 @@ fun interfaz(){
                     var newfecha=respuesta3
                     if (alumno.modificarAlumno(modifica.toInt(),newnombre,newfecha)){
                         JOptionPane.showMessageDialog(null, "Alumno modificado exitosamente");
+                        interfaz()
                     }else{
                         JOptionPane.showMessageDialog(null, "El alumno no se pudo modificar", "Error!!", JOptionPane.ERROR_MESSAGE);
+                        interfaz()
                     }
 
                 }else{
@@ -250,8 +254,10 @@ fun interfaz(){
                         val elimina = JOptionPane.showInputDialog(null, "Escriba el id Nombre del estudiante que quiere eliminar")
                        if( alumno.eliminarcascada(elimina.toInt())){
                            JOptionPane.showMessageDialog(null, "Alumno eliminado exitosamente");
+                           interfaz()
                        }else{
                            JOptionPane.showMessageDialog(null, "El alumno no pudo ser modificado", "Error!!", JOptionPane.ERROR_MESSAGE);
+                           interfaz()
                        }
 
                     }
@@ -279,8 +285,10 @@ fun interfaz(){
             idEstudiante=respuesta5.toInt()
             if (aula.crearAula(id_Aula,materia,numAlumnos,salonDisponible,idEstudiante)){
                 JOptionPane.showMessageDialog(null, "Aula creada exitosamente");
+                interfaz()
             }else{
-                JOptionPane.showMessageDialog(null, "El alumno no pudo ser creado", "Error!!", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "El aula no pudo ser creado", "Error!!", JOptionPane.ERROR_MESSAGE);
+                interfaz()
             }
 
         }else{
@@ -288,9 +296,11 @@ fun interfaz(){
                 val respuestabus = JOptionPane.showInputDialog(null, "Ingrese la materia que quiere buscar")
                 var buscar=respuestabus
                 if(aula.buscarAulas(buscar)){
-                    JOptionPane.showMessageDialog(null, "Alumno encontrado"+buscar);
+                    JOptionPane.showMessageDialog(null, "Aula encontrada"+buscar);
+                    interfaz()
                 }else{
-                    JOptionPane.showMessageDialog(null, "El alumno no exite en el archivo", "Error!!", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "El aula no exite en el archivo", "Error!!", JOptionPane.ERROR_MESSAGE);
+                    interfaz()
                 }
             }else{
                 if (select2 == 2){
@@ -304,17 +314,21 @@ fun interfaz(){
                     var newsalondisponible=respuesta4
                     if (aula.modificarAula(modifica.toInt(),newnombremateria,newnumalumnos,newsalondisponible)){
                         JOptionPane.showMessageDialog(null, "Aula modificado exitosamente");
+                        interfaz()
                     }else{
                         JOptionPane.showMessageDialog(null, "El aula no pudo modificarse", "Error!!", JOptionPane.ERROR_MESSAGE);
+                        interfaz()
                     }
 
                 }else{
                     if (select2==3){
                         val elimina = JOptionPane.showInputDialog(null, "Ingrese el id del aula que desea eliminar")
                         if(aula.eliminarAula(elimina.toInt())){
-                            JOptionPane.showMessageDialog(null, "Alumno modificado exitosamente");
+                            JOptionPane.showMessageDialog(null, "Aula eliminada exitosamente");
+                            interfaz()
                         }else{
-                            JOptionPane.showMessageDialog(null, "El alumno no pudo ser modificado", "Error!!", JOptionPane.ERROR_MESSAGE);
+                            JOptionPane.showMessageDialog(null, "El aula  no pudo ser eliminada", "Error!!", JOptionPane.ERROR_MESSAGE);
+                            interfaz()
                         }
 
                     }
