@@ -267,6 +267,9 @@ fun interfaz(){
     }else{
         val options = arrayOf("Crear", "Buscar","Modificar","Eliminar")
         val select2=JOptionPane.showOptionDialog(null, "Seleccione una opción", "Menu Aulas", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE,null, options, options[0])
+        val disponible = arrayOf(
+                "true","false"
+        )
         if(select2==0){
             var id_Aula:Int=0
             var materia:String=""
@@ -279,8 +282,10 @@ fun interfaz(){
             materia=respuesta2
             val respuesta3 = JOptionPane.showInputDialog(null, "Ingrese el numero de alumnos en el aula")
             numAlumnos=respuesta3.toInt()
-            val respuesta4 = JOptionPane.showInputDialog(null, "Ingrese si el salon esta disponible")
+            //val respuesta4 = JOptionPane.showInputDialog(null, "Ingrese si el salon esta disponible")
+           val respuesta4 = JOptionPane.showInputDialog(null, "Seleccione a disponibilidad del aula", "Disponible", JOptionPane.DEFAULT_OPTION,null,disponible,disponible) as String
             salonDisponible=respuesta4.toBoolean()
+            //salonDisponible=respuesta4.toBoolean()
             val respuesta5 = JOptionPane.showInputDialog(null, "Ingrese el id del estudante que se encuntra en el aula")
             idEstudiante=respuesta5.toInt()
             if (aula.crearAula(id_Aula,materia,numAlumnos,salonDisponible,idEstudiante)){
@@ -304,14 +309,16 @@ fun interfaz(){
                 }
             }else{
                 if (select2 == 2){
-                    val respuesta1 = JOptionPane.showInputDialog(null, "Ingrese el id del alumno que desea modificar")
+                    val respuesta1 = JOptionPane.showInputDialog(null, "Ingrese el id del aula que desea modificar")
                     var modifica =respuesta1.toInt()
                     val respuesta2 = JOptionPane.showInputDialog(null, "Ingrese el nuevo nombre de la materia")
                     var newnombremateria=respuesta2
                     val respuesta3 = JOptionPane.showInputDialog(null, "Ingrese la nueva cantidad de alumnos")
                     var newnumalumnos=respuesta3
-                    val respuesta4 = JOptionPane.showInputDialog(null, "Ingrese la nueva disponibilidad del salon")
+                    //val respuesta4 = JOptionPane.showInputDialog(null, "Ingrese la nueva disponibilidad del salon")
+                    val respuesta4 = JOptionPane.showInputDialog(null, "Ingrese la nueva disponibilidad del salon", "Disponible", JOptionPane.DEFAULT_OPTION,null,disponible,disponible) as String
                     var newsalondisponible=respuesta4
+                    //var newsalondisponible=respuesta4
                     if (aula.modificarAula(modifica.toInt(),newnombremateria,newnumalumnos,newsalondisponible)){
                         JOptionPane.showMessageDialog(null, "Aula modificado exitosamente");
                         interfaz()

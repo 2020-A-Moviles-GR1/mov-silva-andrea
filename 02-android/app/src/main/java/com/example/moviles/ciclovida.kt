@@ -12,11 +12,16 @@ class ciclovida : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ciclovida)
         Log.i("Activity","OnCreate")
+        numeroActual= ServivioBDDMemoria.numero
+        if(numeroActual !=0){
+            tv_num.text=numeroActual.toString()
+        }
         btn_añadir.setOnClickListener{
             sumarValor()}
     }
     fun sumarValor(){
         numeroActual=numeroActual+1
+        ServivioBDDMemoria.aniadirNumero()
         tv_num.text=numeroActual.toString()
     }
     override fun onStart() {
