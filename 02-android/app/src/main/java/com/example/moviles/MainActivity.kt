@@ -11,13 +11,24 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        btn_ciclo_vida.setOnClickListener({
+       btn_ciclo_vida.setOnClickListener({
             boton -> irCicloVida()
+        })
+
+
+        btn_list_view.setOnClickListener({
+                boton -> irListview()
         })
     }
     fun irCicloVida(){
         val intentExplicito=Intent(
             this,ciclovida::class.java
+        )
+        this.startActivity(intentExplicito)
+    }
+    fun irListview(){
+        val intentExplicito=Intent(
+            this,BListViewActivity::class.java
         )
         this.startActivity(intentExplicito)
     }
