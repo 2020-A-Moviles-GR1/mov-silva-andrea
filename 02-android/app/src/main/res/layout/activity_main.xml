@@ -32,14 +32,24 @@
         app:layout_constraintVertical_bias="0.18" />
 
     <Button
-        android:id="@+id/BTN_INTEN_RESPUESTA"
+        android:id="@+id/btn_inten_respuesta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Inten_con_respuesta"
+        android:text="INTEN RESPUESTA"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.59"
         app:layout_constraintStart_toEndOf="@+id/btn_list_view"
         app:layout_constraintTop_toTopOf="@+id/btn_ciclo_vida"
         app:layout_constraintVertical_bias="0.404" />
+
+    <Button
+        android:id="@+id/btn_intent_implicito"
+        android:layout_width="199dp"
+        android:layout_height="61dp"
+        android:text="Inten Implicito"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btn_inten_respuesta"
+        app:layout_constraintStart_toStartOf="@+id/btn_inten_respuesta"
+        app:layout_constraintTop_toBottomOf="@+id/btn_inten_respuesta" />
 </androidx.constraintlayout.widget.ConstraintLayout>
