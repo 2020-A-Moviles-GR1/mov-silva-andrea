@@ -1,5 +1,6 @@
 package com.example.moviles
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -22,5 +23,26 @@ class IntenEnviaParamtros : AppCompatActivity() {
         btn_devolver_respuesta.setOnClickListener {
            finish()
          }
+        btn_resp_aceptar.setOnClickListener {
+            val nombre="Andrea"
+            val edad=22
+            val intentRespuesta=Intent()
+            intentRespuesta.putExtra("nombre",nombre)
+            intentRespuesta.putExtra("edad",edad)
+            //this.
+            setResult(
+                Activity.RESULT_OK,
+                intentRespuesta
+            )
+            finish()
+        }
+        btn_resp_cancelar.setOnClickListener {
+            val intentcANCELADO=Intent()
+            setResult(
+                Activity.RESULT_CANCELED,
+                intentcANCELADO
+            )
+            finish()
+        }
     }
 }

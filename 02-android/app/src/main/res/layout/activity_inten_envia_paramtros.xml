@@ -7,6 +7,16 @@
     tools:context=".IntenEnviaParamtros">
 
     <Button
+        android:id="@+id/btn_resp_cancelar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CANCELAR"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_devolver_respuesta" />
+
+    <Button
         android:id="@+id/btn_devolver_respuesta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -15,4 +25,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_resp_aceptar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ACEPTAR"
+        app:layout_constraintBottom_toTopOf="@+id/btn_resp_cancelar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_devolver_respuesta" />
 </androidx.constraintlayout.widget.ConstraintLayout>
