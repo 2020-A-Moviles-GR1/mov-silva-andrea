@@ -1,0 +1,62 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 556256 bytes for Chunk::new
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+#   JVM is running with Unscaled Compressed Oops mode in which the Java heap is
+#     placed in the first 4GB address space. The Java Heap base address is the
+#     maximum limit for the native heap growth. Please use -XX:HeapBaseMinAddress
+#     to set the Java Heap base and to place the Java Heap above 4GB virtual address.
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (allocation.cpp:389), pid=14592, tid=0x0000000000006ecc
+#
+# JRE version: OpenJDK Runtime Environment (8.0_242-b01) (build 1.8.0_242-release-1644-b01)
+# Java VM: OpenJDK 64-Bit Server VM (25.242-b01 mixed mode windows-amd64 compressed oops)
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000000001a068000):  JavaThread "C2 CompilerThread1" daemon [_thread_in_native, id=28364, stack(0x000000001aa50000,0x000000001ab50000)]
+
+Stack: [0x000000001aa50000,0x000000001ab50000]
+[error occurred during error reporting (printing stack bounds), id 0xc0000005]
+
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+
+
+Current CompileTask:
+C2:  83268 15095   !   4       java.nio.file.FileTreeWalker::visit (204 bytes)
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x0000000022a81800 JavaThread "WorkerExecutor Queue" [_thread_in_Java, id=30868, stack(0x000000002a010000,0x000000002a110000)]
+  0x0000000022a76800 JavaThread "RMI RenewClean-[127.0.0.1:17433,org.jetbrains.kotlin.daemon.common.LoopbackNetworkInterface$ClientLoopbackSocketFactory@5ec8beda]" daemon [_thread_blocked, id=28988, stack(0x0000000029d10000,0x0000000029e10000)]
+  0x0000000022a73800 JavaThread "Cache worker for execution history cache (C:\Users\Asus\Documents\GitHub\mov-silva-andrea\CRUApp\.gradle\6.1.1\executionHistory)" [_thread_blocked, id=15784, stack(0x0000000028640000,0x0000000028740000)]
+  0x0000000022a7a000 JavaThread "Execution worker for ':' Thread 7" [_thread_blocked, id=29476, stack(0x0000000028540000,0x0000000028640000)]
+  0x0000000022a78800 JavaThread "Execution worker for ':' Thread 6" [_thread_blocked, id=17984, stack(0x0000000028440000,0x0000000028540000)]
+  0x000000001ce12000 JavaThread "Execution worker for ':' Thread 5" [_thread_blocked, id=29920, stack(0x0000000027d40000,0x0000000027e40000)]
+  0x000000001ce10000 JavaThread "Execution worker for ':' Thread 4" [_thread_blocked, id=24348, stack(0x0000000027540000,0x0000000027640000)]
+  0x000000001ce13000 JavaThread "Execution worker for ':' Thread 3" [_thread_blocked, id=25756, stack(0x0000000027240000,0x0000000027340000)]
+  0x000000001ce0f000 JavaThread "Execution worker for ':' Thread 2" [_thread_blocked, id=21604, stack(0x0000000027140000,0x0000000027240000)]
+  0x000000001ce0e800 JavaThread "Execution worker for ':'" [_thread_in_vm, id=13804, stack(0x0000000027040000,0x0000000027140000)]
+  0x000000001ce0d800 JavaThread "Cache worker for file content cache (C:\Users\Asus\Documents\GitHub\mov-silva-andrea\CRUApp\.gradle\6.1.1\fileContent)" [_thread_blocked, id=22376, stack(0x00000000263d0000,0x00000000264d0000)]
+  0x000000001ce0d000 JavaThread "Cache worker for Build Output Cleanup Cache (C:\Users\Asus\Documents\GitHub\mov-silva-andrea\CRUApp\.gradle\buildOutputCleanup)" [_thread_blocked, id=26088, stack(0x0000000025630000,0x0000000025730000)]
+  0x000000001ce05800 JavaThread "Build operations Thread 8" [_thread_blocked, id=22684, stack(0x0000000024f30000,0x0000000025030000)]
+  0x000000001ce0c000 JavaThread "Build operations Thread 7" [_thread_blocked, id=24788, stack(0x0000000024e30000,0x0000000024f30000)]
+  0x000000001ce0b800 JavaThread "Build operations Thread 6" [_thread_blocked, id=11248, stack(0x0000000024d30000,0x0000000024e30000)]
+  0x000000001ce04800 JavaThread "Build operations Thread 5" [_thread_blocked, id=27684, stack(0x0000000024c30000,0x0000000024d30000)]
+  0x000000001ce09000 JavaThread "Build operations Thread 4" [_thread_blocked, id=24856, stack(0x0000000024b30000,0x0000000024c30000)]
+  
