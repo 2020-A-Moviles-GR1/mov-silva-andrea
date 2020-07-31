@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
     }
     fun irOperaciones_aulas(){
         val intentExplicito= Intent(
-            this,Opciones_operaciones::class.java
+            this,Opciones_aulas::class.java
         )
         this.startActivity(intentExplicito)
     }

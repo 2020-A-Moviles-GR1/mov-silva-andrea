@@ -9,9 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Buscar_alumno"></activity>
+        <activity android:name=".Actualizar_aula"></activity>
+        <activity android:name=".Buscar_aula" />
+        <activity android:name=".Crear_aulas" />
+        <activity android:name=".Actualizar_alumno" />
+        <activity android:name=".Eliminar_alumno" />
+        <activity android:name=".Buscar_alumno" />
         <activity android:name=".Crear_alumno" />
-        <activity android:name=".CREARaLUMNO" />
         <activity android:name=".Opciones_aulas" />
         <activity android:name=".Opciones_operaciones" />
         <activity android:name=".MainActivity">

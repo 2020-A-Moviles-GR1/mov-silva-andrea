@@ -4,11 +4,8 @@ import android.app.DatePickerDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
-import android.widget.ArrayAdapter
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_crear_alumno.*
-import java.time.LocalDate
 
 class Crear_alumno : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
