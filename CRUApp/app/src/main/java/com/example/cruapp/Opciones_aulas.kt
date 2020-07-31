@@ -22,6 +22,10 @@ class Opciones_aulas : AppCompatActivity() {
         btn_actualizar_aulas.setOnClickListener({
                 boton->ir_actualizar_aulas()
         })
+
+        btn_borrar.setOnClickListener({
+                boton->ir_eliminar_aulas()
+        })
     }
 
     fun ir_crear_aulas(){
@@ -41,6 +45,13 @@ class Opciones_aulas : AppCompatActivity() {
     fun ir_actualizar_aulas(){
         val intentExplicito= Intent(
             this,Actualizar_aula::class.java
+        )
+        this.startActivity(intentExplicito)
+    }
+
+    fun ir_eliminar_aulas(){
+        val intentExplicito= Intent(
+            this,Eliminar_aulas::class.java
         )
         this.startActivity(intentExplicito)
     }

@@ -58,7 +58,7 @@
         android:id="@+id/btn_borrar"
         android:layout_width="149dp"
         android:layout_height="45dp"
-        android:text="BORRAR"
+        android:text="ELIMINAR"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
