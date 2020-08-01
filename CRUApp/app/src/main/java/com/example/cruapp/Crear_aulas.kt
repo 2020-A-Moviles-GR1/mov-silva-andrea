@@ -30,7 +30,6 @@ class Crear_aulas : AppCompatActivity() {
 
             datos_nombre.add(nombrealum)
 
-
         }
         val adaptadordatos= ArrayAdapter(
             this,android.R.layout.simple_spinner_item, //nombre layout

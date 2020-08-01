@@ -4,23 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#7000BCD4"
     tools:context=".Actualizar_alumno">
 
     <TextView
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="60dp"
         android:text="Sexo:"
+        android:textColor="#000000"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.031"
+        app:layout_constraintHorizontal_bias="0.135"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
     <ListView
         android:id="@+id/lv_actualizar"
-        android:layout_width="393dp"
-        android:layout_height="164dp"
+        android:layout_width="372dp"
+        android:layout_height="131dp"
+        android:background="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,53 +35,60 @@
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="324dp"
+        android:layout_marginBottom="344dp"
         android:text="Nombre:"
+        android:textColor="#000000"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.072"
+        app:layout_constraintHorizontal_bias="0.109"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="60dp"
+        android:layout_width="142dp"
+        android:layout_height="69dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="36dp"
         android:text="Fecha de nacimiento:"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="#000000"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9"
-        app:layout_constraintVertical_bias="0.292" />
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
     <RadioButton
         android:id="@+id/btn_sexFact"
-        android:layout_width="113dp"
-        android:layout_height="31dp"
-        android:layout_marginStart="124dp"
-        android:layout_marginTop="332dp"
+        android:layout_width="141dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="296dp"
+        android:layout_marginEnd="60dp"
+        android:backgroundTint="#AB9C27B0"
+        android:buttonTint="#B29C27B0"
         android:text="Femenino"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/textView9"
         app:layout_constraintTop_toTopOf="parent" />
 
     <RadioButton
         android:id="@+id/btn_sexMact"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="28dp"
+        android:layout_width="178dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="12dp"
+        android:buttonTint="#9E3F51B5"
         android:text="Masculino"
-        app:layout_constraintBottom_toTopOf="@+id/txt_fecha_actualiza"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.509"
-        app:layout_constraintStart_toEndOf="@+id/textView9" />
+        app:layout_constraintHorizontal_bias="0.818"
+        app:layout_constraintStart_toEndOf="@+id/textView9"
+        app:layout_constraintTop_toBottomOf="@+id/btn_sexFact" />
 
     <EditText
         android:id="@+id/txt_fecha_actualiza"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="120dp"
+        android:layout_width="222dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="144dp"
+        android:background="#FFFFFF"
         android:clickable="true"
         android:ems="10"
         android:focusable="false"
@@ -85,31 +96,46 @@
         android:maxLines="1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.68"
-        app:layout_constraintStart_toEndOf="@+id/textView10"
         app:layout_constraintTop_toBottomOf="@+id/btn_sexF"
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/btn_actualizar"
-        android:layout_width="131dp"
-        android:layout_height="46dp"
-        android:layout_marginBottom="36dp"
+        android:layout_width="178dp"
+        android:layout_height="67dp"
+        android:layout_marginBottom="56dp"
+        android:background="#FFC107"
         android:text="ACTUALIZAR"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.542"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/txt_nombre_actualiza"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="132dp"
+        android:layout_width="211dp"
+        android:layout_height="47dp"
+        android:layout_marginBottom="136dp"
+        android:background="#FFFFFF"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/txt_fecha_actualiza"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.576"
+        app:layout_constraintHorizontal_bias="0.743"
         app:layout_constraintStart_toEndOf="@+id/textView8" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="ALUMNOS"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
