@@ -43,9 +43,11 @@ class Crear_alumno : AppCompatActivity() {
         var sexo:Char=' '
         if(btn_sexF.isChecked()== true){
             sexo='F'
+
         }
         if(btn_sexM.isChecked()==true){
             sexo='M'
+
         }
         ServicioBD.crearAlumno(nombre_alumno,sexo, text_fecha.text.toString())
 

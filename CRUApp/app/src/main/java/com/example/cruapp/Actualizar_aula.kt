@@ -7,6 +7,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.Spinner
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_actualizar_alumno.*
 import kotlinx.android.synthetic.main.activity_actualizar_aula.*
 import kotlinx.android.synthetic.main.activity_crear_alumno.*
@@ -107,6 +108,20 @@ class Actualizar_aula : AppCompatActivity() {
                     aulasselect.salonDisponible=newsalon
                     aulasselect.alumnoAsignado=newalum
                     adaptador.notifyDataSetChanged()
+                    Snackbar.make(view, "AULA  MODIFICADA EXITOSAMENTE", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show()
+
+                    txt_materia_actualizar.setText("")
+
+                    if (btn_actualizasi.isChecked()){
+                        btn_actualizasi.setChecked(false)
+
+                    }
+                    if (btn_actualizano.isChecked()){
+                        btn_actualizano.setChecked(false)
+
+                    }
+
 
                 }
                 if(salonDisponible=="No"){
@@ -126,6 +141,20 @@ class Actualizar_aula : AppCompatActivity() {
                     aulasselect.salonDisponible=newsalon
                     aulasselect.alumnoAsignado=newalum
                     adaptador.notifyDataSetChanged()
+                    Snackbar.make(view, "AULA  MODIFICADA EXITOSAMENTE", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show()
+
+                    txt_materia_actualizar.setText("")
+
+                    if (btn_actualizasi.isChecked()){
+                        btn_actualizasi.setChecked(false)
+
+                    }
+                    if (btn_actualizano.isChecked()){
+                        btn_actualizano.setChecked(false)
+
+                    }
+
 
                 }
 

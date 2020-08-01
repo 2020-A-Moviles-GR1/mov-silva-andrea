@@ -11,119 +11,94 @@
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="316dp"
         android:text="Sexo:"
         android:textColor="#000000"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.135"
+        app:layout_constraintHorizontal_bias="0.121"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ListView
         android:id="@+id/lv_actualizar"
         android:layout_width="372dp"
         android:layout_height="131dp"
+        android:layout_marginTop="72dp"
         android:background="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.41"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.166" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="344dp"
+        android:layout_marginTop="232dp"
         android:text="Nombre:"
         android:textColor="#000000"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.109"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.112"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView10"
-        android:layout_width="142dp"
-        android:layout_height="69dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="36dp"
+        android:layout_width="146dp"
+        android:layout_height="76dp"
+        android:layout_marginTop="384dp"
         android:text="Fecha de nacimiento:"
         android:textColor="#000000"
         android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.075"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
-
-    <RadioButton
-        android:id="@+id/btn_sexFact"
-        android:layout_width="141dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="296dp"
-        android:layout_marginEnd="60dp"
-        android:backgroundTint="#AB9C27B0"
-        android:buttonTint="#B29C27B0"
-        android:text="Femenino"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <RadioButton
-        android:id="@+id/btn_sexMact"
-        android:layout_width="178dp"
-        android:layout_height="34dp"
-        android:layout_marginTop="12dp"
-        android:buttonTint="#9E3F51B5"
-        android:text="Masculino"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.818"
-        app:layout_constraintStart_toEndOf="@+id/textView9"
-        app:layout_constraintTop_toBottomOf="@+id/btn_sexFact" />
 
     <EditText
         android:id="@+id/txt_fecha_actualiza"
         android:layout_width="222dp"
         android:layout_height="50dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="4dp"
-        android:layout_marginBottom="144dp"
         android:background="#FFFFFF"
         android:clickable="true"
         android:ems="10"
         android:focusable="false"
         android:inputType="date"
         android:maxLines="1"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_sexF"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintHorizontal_bias="0.521"
+        app:layout_constraintStart_toEndOf="@+id/textView10"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup2" />
 
     <Button
         android:id="@+id/btn_actualizar"
         android:layout_width="178dp"
         android:layout_height="67dp"
-        android:layout_marginBottom="56dp"
+        android:layout_marginTop="80dp"
         android:background="#FFC107"
         android:text="ACTUALIZAR"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_fecha_actualiza" />
 
     <EditText
         android:id="@+id/txt_nombre_actualiza"
         android:layout_width="211dp"
         android:layout_height="47dp"
-        android:layout_marginBottom="136dp"
+        android:layout_marginBottom="20dp"
         android:background="#FFFFFF"
         android:ems="10"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/txt_fecha_actualiza"
+        app:layout_constraintBottom_toTopOf="@+id/radioGroup2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.743"
+        app:layout_constraintHorizontal_bias="0.648"
         app:layout_constraintStart_toEndOf="@+id/textView8" />
 
     <TextView
@@ -134,8 +109,42 @@
         android:text="ALUMNOS"
         android:textColor="#000000"
         android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/lv_actualizar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup2"
+        android:layout_width="178dp"
+        android:layout_height="83dp"
+        android:layout_marginTop="92dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.598"
+        app:layout_constraintStart_toEndOf="@+id/textView9"
+        app:layout_constraintTop_toBottomOf="@+id/lv_actualizar">
+
+        <RadioButton
+            android:id="@+id/btn_sexFact"
+            android:layout_width="141dp"
+            android:layout_height="35dp"
+            android:backgroundTint="#AB9C27B0"
+            android:buttonTint="#B29C27B0"
+            android:text="Femenino"
+            android:textSize="24sp"
+            tools:layout_editor_absoluteX="106dp"
+            tools:layout_editor_absoluteY="352dp" />
+
+        <RadioButton
+            android:id="@+id/btn_sexMact"
+            android:layout_width="178dp"
+            android:layout_height="34dp"
+            android:buttonTint="#9E3F51B5"
+            android:text="Masculino"
+            android:textSize="24sp"
+            tools:layout_editor_absoluteX="82dp"
+            tools:layout_editor_absoluteY="409dp" />
+    </RadioGroup>
 </androidx.constraintlayout.widget.ConstraintLayout>

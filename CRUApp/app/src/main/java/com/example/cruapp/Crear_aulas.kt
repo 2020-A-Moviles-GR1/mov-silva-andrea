@@ -71,9 +71,11 @@ class Crear_aulas : AppCompatActivity() {
         var salonDisponible:String=""
         if(btn_no.isChecked()== true){
             salonDisponible="No"
+            btn_si.setChecked(false)
         }
         if(btn_si.isChecked()==true){
             salonDisponible="Si"
+            btn_si.setChecked(false)
         }
         var alumnoasignado=sp_alumno.getSelectedItem().toString();
 

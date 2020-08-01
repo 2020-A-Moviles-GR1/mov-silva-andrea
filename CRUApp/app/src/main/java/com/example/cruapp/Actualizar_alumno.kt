@@ -11,6 +11,7 @@ import android.widget.EditText
 import android.widget.ListView
 import androidx.core.view.forEach
 import androidx.core.view.get
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_actualizar_alumno.*
 import kotlinx.android.synthetic.main.activity_crear_alumno.*
 import kotlinx.android.synthetic.main.activity_eliminar_alumno.*
@@ -63,6 +64,8 @@ class Actualizar_alumno : AppCompatActivity() {
                     alumnoselect.sexo=newsex
                     alumnoselect.fecha_nacimiento=newfecha
                     adaptador.notifyDataSetChanged()
+                    Snackbar.make(view, "ALUMNO  MODIFICADO EXITOSAMENTE", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show()
 
                 }
                 if(sexo_select=='M'){
@@ -73,6 +76,20 @@ class Actualizar_alumno : AppCompatActivity() {
                     alumnoselect.sexo=newsex
                     alumnoselect.fecha_nacimiento=newfecha
                     adaptador.notifyDataSetChanged()
+                    Snackbar.make(view, "ALUMNO  MODIFICADO EXITOSAMENTE", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show()
+
+                    txt_nombre_actualiza.setText("")
+                    txt_fecha_actualiza.setText("")
+                    if (btn_sexMact.isChecked()){
+                        btn_sexMact.setChecked(false)
+
+                    }
+                    if (btn_sexFact.isChecked()){
+                        btn_sexFact.setChecked(false)
+
+                    }
+
 
                 }
 
