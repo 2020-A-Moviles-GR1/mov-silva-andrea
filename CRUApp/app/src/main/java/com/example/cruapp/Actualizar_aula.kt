@@ -92,7 +92,7 @@ class Actualizar_aula : AppCompatActivity() {
             btn_actualiza_aulas.setOnClickListener {
 
                 if(salonDisponible=="Si"){
-                    btn_actualizasi.setChecked(false)
+
                     var newmateria=txt_materia_actualizar.text.toString()
                     var newnumalum=sp_numalumnos_actualiza.getSelectedItem().toString()
                     var newsalon:String=""
@@ -125,7 +125,7 @@ class Actualizar_aula : AppCompatActivity() {
 
                 }
                 if(salonDisponible=="No"){
-                    btn_actualizano.setChecked(false)
+
                     var newmateria=txt_materia_actualizar.text.toString()
                     var newnumalum=sp_numalumnos_actualiza.getSelectedItem().toString()
                     var newsalon:String=""
@@ -133,7 +133,7 @@ class Actualizar_aula : AppCompatActivity() {
                         newsalon="Si"
                     }
                     if(btn_actualizano.isChecked()==true){
-                        newsalon="no"
+                        newsalon="No"
                     }
                     var newalum=sp_alumnoactuliza.getSelectedItem().toString()
                     aulasselect.materia=newmateria
