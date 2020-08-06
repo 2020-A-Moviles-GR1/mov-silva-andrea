@@ -8,6 +8,7 @@ import android.provider.ContactsContract
 import android.util.Log
 import kotlinx.android.synthetic.main.activity_inten_envia_paramtros.*
 import kotlinx.android.synthetic.main.activity_main.*
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,7 +51,12 @@ class MainActivity : AppCompatActivity() {
             this,IntenEnviaParamtros::class.java
         )
         intentExplicito.putExtra("numero",2)
-        this.startActivity(intentExplicito)
+        val Andrea=Usuario("Andrea",22, Date(),1.0)
+        val tony=Mascota("tony",Andrea)
+        val arregloMascota= arrayListOf<Mascota>(tony)
+        intentExplicito.putExtra("tony",tony)
+        intentExplicito.putExtra("arreglomascota",arregloMascota)
+        startActivity(intentExplicito)
     }
     fun irListview(){
         val intentExplicito=Intent(
