@@ -23,6 +23,21 @@ class IntenEnviaParamtros : AppCompatActivity() {
         btn_devolver_respuesta.setOnClickListener {
            finish()
          }
+        val tony= intent.getParcelableExtra<Mascota>("tony")
+        if(tony != null){
+            Log.i("parcelabe","${tony.nombre} ${tony.duenio?.nombre} ")
+        }
+
+        val arregloMascotas= intent.getParcelableArrayListExtra<Mascota>("arreglomascota")
+        if(arregloMascotas != null){
+            arregloMascotas.forEach{
+                if(it != null){
+                    Log.i("parcelable","EN ARREGLO")
+                    Log.i("parcelabe","${it.nombre} ${it.duenio?.nombre} ")
+                }
+            }
+
+        }
         btn_resp_aceptar.setOnClickListener {
             val nombre="Andrea"
             val edad=22
