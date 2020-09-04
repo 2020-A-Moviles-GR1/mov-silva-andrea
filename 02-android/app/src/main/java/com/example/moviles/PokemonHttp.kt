@@ -1,6 +1,7 @@
 package com.example.moviles
 
 import java.util.*
+import kotlin.reflect.KClass
 
 class PokemonHttp (
     var id:Integer,
@@ -9,7 +10,7 @@ class PokemonHttp (
     var nombre:String,
     var usuario:Integer,
     var batalla:Integer
-){
+)  {
 var fechaCreacion:Date
     var fechaActualiacion:Date
     init {

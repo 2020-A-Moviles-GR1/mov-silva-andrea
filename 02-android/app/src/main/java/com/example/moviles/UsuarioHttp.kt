@@ -1,5 +1,6 @@
 package com.example.moviles
 
+import com.beust.klaxon.TypeFor
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -20,4 +21,6 @@ class UsuarioHttp(
         fechaCreacion= Date(createdAt)
         fechaActualiacion= Date(updatedAt)
     }
+
+
 }

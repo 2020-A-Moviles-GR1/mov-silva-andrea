@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.beust.klaxon.Klaxon
+import com.beust.klaxon.TypeFor
 import com.github.kittinunf.fuel.httpGet
 import com.github.kittinunf.fuel.httpPost
 import com.github.kittinunf.result.Result
@@ -68,6 +69,8 @@ class HttpActivity : AppCompatActivity() {
                 }
             }
         }
+
+
     }
     fun crearUsuario(){
         val url=urlPrincipal+ "/Usuario"
