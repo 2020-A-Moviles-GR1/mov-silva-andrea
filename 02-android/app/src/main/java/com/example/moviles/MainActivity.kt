@@ -45,6 +45,10 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+        btn_mapa.setOnClickListener{
+            irAMapa()
+        }
+
 
     }
     fun abrirActividadHttp(){
@@ -143,4 +147,12 @@ class MainActivity : AppCompatActivity() {
         )
         this.startActivity(intentExplicito)
     }
+    fun irAMapa(){
+        val  intentExplicito=Intent(
+            this,google_maps_api::class.java
+        )
+        this.startActivity(intentExplicito)
+    }
+
+
 }
