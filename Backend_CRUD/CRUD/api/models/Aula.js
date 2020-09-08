@@ -6,23 +6,24 @@
  */
 
 module.exports = {
-  tableName:'aulas',
+
   attributes: {
-    materia:{
-      type:'string'
-    },
 
-    numalumnos:{
-      type:'number'
-    },
-    salonDisponible:{
-      type:'boolean'
-    },
-    alumnoAsignado:{
-      model:'alumno',
-      required: true
-    }
-
+  materia:{
+    type:'string',
+    minLength:10
+  },
+  numAlumnos:{
+    type:'number'
+    
+  },
+  salonDisponible:{
+    type:'string',
+    maxLength:2
+  },
+  alumnos:{
+    type:'string'
+  }
 
   },
 
