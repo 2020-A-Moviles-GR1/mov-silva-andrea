@@ -10,8 +10,7 @@ module.exports = {
   attributes: {
 
   materia:{
-    type:'string',
-    minLength:10
+    type:'string'
   },
   numAlumnos:{
     type:'number'
