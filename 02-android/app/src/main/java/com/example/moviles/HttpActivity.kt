@@ -56,11 +56,6 @@ class HttpActivity : AppCompatActivity() {
                                 "http-klaxon", "Nombre:${it.nombre}" +
                                         "Estado civil: ${it.estadoCivil}"
                             )
-                            /*if(it.pokemons!!.size > 0 ){
-                                it.pokemons!!.forEach{
-                                    Log.i("http-klaxon","Nombre:${it.nombre}")
-                                }
-                            }*/
 
                         }
 
