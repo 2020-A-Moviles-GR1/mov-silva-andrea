@@ -40,6 +40,14 @@ class MainActivity : AppCompatActivity() {
         btn_http.setOnClickListener{
             abrirActividadHttp()
         }
+        btn_recycler.setOnClickListener{
+        abrirRecycleViewActivity()
+
+        }
+
+        btn_mapa.setOnClickListener{
+            irAMapa()
+        }
 
 
     }
@@ -133,4 +141,18 @@ class MainActivity : AppCompatActivity() {
         )
         startActivityForResult(intentExplicito,305)
     }
+    fun abrirRecycleViewActivity(){
+        val  intentExplicito=Intent(
+            this,RecyclerVIewActivity::class.java
+        )
+        this.startActivity(intentExplicito)
+    }
+    fun irAMapa(){
+        val  intentExplicito=Intent(
+            this,google_maps_api::class.java
+        )
+        this.startActivity(intentExplicito)
+    }
+
+
 }

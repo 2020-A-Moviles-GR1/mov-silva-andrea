@@ -6,4 +6,24 @@
     android:layout_height="match_parent"
     tools:context=".RecyclerVIewActivity">
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_usuarios"
+        android:layout_width="307dp"
+        android:layout_height="375dp"
+        android:layout_marginBottom="56dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/tv_titulo_rv"
+        app:layout_constraintHorizontal_bias="0.583"
+        app:layout_constraintStart_toStartOf="@+id/tv_titulo_rv" />
+
+    <TextView
+        android:id="@+id/tv_titulo_rv"
+        android:layout_width="62dp"
+        android:layout_height="16dp"
+        android:layout_marginTop="92dp"
+        android:text="TITULO"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.53"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

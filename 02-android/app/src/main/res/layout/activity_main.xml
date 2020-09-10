@@ -86,4 +86,15 @@
         app:layout_constraintEnd_toStartOf="@+id/btn_http"
         app:layout_constraintHorizontal_bias="0.387"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btn_mapa"
+        android:layout_width="142dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="328dp"
+        android:text="MAPA"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.122"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

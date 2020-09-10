@@ -1,8 +1,6 @@
 package com.example.cruapp
 
 import android.util.Log
-import android.widget.EditText
-import java.time.LocalDate
 
 class ServicioBD {
     companion object{
@@ -10,10 +8,11 @@ class ServicioBD {
         var listaAulas= arrayListOf<Aulas>()
         fun crearAlumno(
             nombre:String,
-            sexo:Char,
+            sexo:String,
             fecaNacimiento: String
         ){
             listaAlumnos.add(Alumno(nombre,sexo,fecaNacimiento))
+
             Log.i("insertar","lista"+ listaAlumnos.toString())
         }
 
