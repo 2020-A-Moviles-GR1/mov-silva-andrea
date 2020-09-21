@@ -35,8 +35,8 @@
 
     <ListView
         android:id="@+id/lv_busca_aula"
-        android:layout_width="312dp"
-        android:layout_height="256dp"
+        android:layout_width="313dp"
+        android:layout_height="205dp"
         android:layout_marginTop="276dp"
         android:background="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
@@ -62,6 +62,21 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/btn_mostrar_alumno"
+        android:layout_width="206dp"
+        android:layout_height="73dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#505DA3"
+        android:text="MOSTRAR ALUMNO"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FF9800"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lv_busca_aula" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

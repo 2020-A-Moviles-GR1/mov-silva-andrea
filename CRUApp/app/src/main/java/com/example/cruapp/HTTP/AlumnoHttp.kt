@@ -7,12 +7,18 @@ class AlumnoHttp (
     var id:Int,
     var nombre:String?,
     var sexo:String?,
-    var fecha_nacimiento: String?
+    var fecha_nacimiento: String?,
+    var latitud:String?,
+    var longitud:String?,
+    var url:String?
 ): Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readInt(),
         parcel.readString(),
-        (parcel.readValue(Char::class.java.classLoader) as? Char).toString(),
+        parcel.readString(),
+        parcel.readString(),
+        parcel.readString(),
+        parcel.readString(),
         parcel.readString()
     ) {
     }
@@ -20,8 +26,11 @@ class AlumnoHttp (
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeInt(id)
         parcel.writeString(nombre)
-        parcel.writeValue(sexo)
+        parcel.writeString(sexo)
         parcel.writeString(fecha_nacimiento)
+        parcel.writeString(latitud)
+        parcel.writeString(longitud)
+        parcel.writeString(url)
     }
 
     override fun describeContents(): Int {
@@ -37,5 +46,6 @@ class AlumnoHttp (
             return arrayOfNulls(size)
         }
     }
+
 
 }

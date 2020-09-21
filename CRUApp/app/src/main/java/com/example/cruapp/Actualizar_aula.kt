@@ -317,7 +317,7 @@ class Actualizar_aula : AppCompatActivity() {
 
                             )
 
-                            listaAlumnos.add(Alumno(it.nombre.toString(), it.sexo.toString(),it.fecha_nacimiento.toString()))
+                            //listaAlumnos.add(Alumno(it.nombre.toString(), it.sexo.toString(),it.fecha_nacimiento.toString()))
 
                             Log.i("lista_servidor-dentro",listaAlumnos.toString())
 

@@ -20,6 +20,17 @@ module.exports = {
    fecha_nacimiento:{
      type:'string'
    },
+
+   latitud:{
+    type:'string'
+   },
+   longitud:{
+    type:'string'
+   },
+   url:{
+    type:'string'
+   },
+
   
 
   },

@@ -16,7 +16,7 @@ import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_eliminar_alumno.*
 
 class Eliminar_alumno : AppCompatActivity() {
-    val urlGeneral = "http://192.168.1.134:1337"
+    val urlGeneral = "http://192.168.1.13:1337"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -117,7 +117,10 @@ class Eliminar_alumno : AppCompatActivity() {
                                 Alumno(
                                     it.nombre.toString(),
                                     it.sexo.toString(),
-                                    it.fecha_nacimiento.toString()
+                                    it.fecha_nacimiento.toString(),
+                                    it.latitud.toString(),
+                                    it.longitud.toString(),
+                                    it.url.toString()
                                 )
                             )
 

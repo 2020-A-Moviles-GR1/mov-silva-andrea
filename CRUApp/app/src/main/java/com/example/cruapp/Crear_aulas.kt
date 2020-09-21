@@ -107,8 +107,6 @@ class Crear_aulas : AppCompatActivity() {
             "numAlumnos" to numalumnos,
             "salonDisponible" to salonDisponible,
             "alumnoasignado" to alumnoasignado
-
-
         )
 
        val peticion= url.httpPost(parametrosUsuario).responseString { request, response, result ->
@@ -143,7 +141,7 @@ class Crear_aulas : AppCompatActivity() {
 
                             )
 
-                            listaAlumnos.add(Alumno(it.nombre.toString(), it.sexo.toString(),it.fecha_nacimiento.toString()))
+                           // listaAlumnos.add(Alumno(it.nombre.toString(), it.sexo.toString(),it.fecha_nacimiento.toString()))
 
                             Log.i("lista_servidor-dentro",listaAlumnos.toString())
 

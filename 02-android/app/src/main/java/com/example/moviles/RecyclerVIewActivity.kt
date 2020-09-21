@@ -10,6 +10,7 @@ class RecyclerVIewActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recycler_v_iew)
         val listaUsuarios= arrayListOf<UsuarioHttp>()
+
         listaUsuarios.add(
             UsuarioHttp(
                 1,

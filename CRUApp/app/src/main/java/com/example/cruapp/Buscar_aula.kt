@@ -1,5 +1,6 @@
 package com.example.cruapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
@@ -13,9 +14,10 @@ import com.example.cruapp.HTTP.AlumnoHttp
 import com.example.cruapp.HTTP.AulaHttp
 import com.github.kittinunf.fuel.httpGet
 import com.github.kittinunf.result.Result
+import kotlinx.android.synthetic.main.activity_buscar_aula.*
 
 class Buscar_aula : AppCompatActivity() {
-    val urlGeneral = "http://192.168.1.134:1337"
+    val urlGeneral = "http://192.168.1.13:1337"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_buscar_aula)
@@ -48,6 +50,10 @@ class Buscar_aula : AppCompatActivity() {
 
         lista_aulas.setAdapter(adaptador)
         nomaula.addTextChangedListener(mSearchTw)
+
+        btn_mostrar_alumno.setOnClickListener {
+            mostrarAlumno()
+        }
 
     }
     fun obtenerAulas(): ArrayList<Aulas> {
@@ -92,5 +98,11 @@ class Buscar_aula : AppCompatActivity() {
         peticion.join()
         return listaAulas
 
+    }
+    fun mostrarAlumno(){
+        val  intentExplicito= Intent(
+            this,mostrar_alumnos::class.java
+        )
+        this.startActivity(intentExplicito)
     }
 }

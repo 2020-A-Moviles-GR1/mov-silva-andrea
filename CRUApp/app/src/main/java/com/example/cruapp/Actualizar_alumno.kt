@@ -185,7 +185,7 @@ class Actualizar_alumno : AppCompatActivity() {
 
                             )
 
-                            listaAlumnos.add(Alumno(it.nombre.toString(), it.sexo.toString(),it.fecha_nacimiento.toString()))
+                          //  listaAlumnos.add(Alumno(it.nombre.toString(), it.sexo.toString(),it.fecha_nacimiento.toString()))
 
 
                             /*if(it.pokemons!!.size > 0 ){
