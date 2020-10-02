@@ -16,7 +16,7 @@ import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_eliminar_alumno.*
 
 class Eliminar_alumno : AppCompatActivity() {
-    val urlGeneral = "http://192.168.1.13:1337"
+    val urlGeneral = "http://192.168.1.141:1337"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -44,11 +44,12 @@ class Eliminar_alumno : AppCompatActivity() {
                     alertDialog.setButton(
                         AlertDialog.BUTTON_POSITIVE, "Yes"
                     ) { dialog, which ->
-                        lista_memoria.removeAt(position)
-                        adaptador.notifyDataSetChanged()
+
                         var nombre=lista_memoria.get(position).nombre
                         var idAlumno=obteneridAlumno(nombre)
                         delete_alumno(idAlumno)
+                        lista_memoria.removeAt(position)
+                        adaptador.notifyDataSetChanged()
                         Snackbar.make(view, "ALUMNO  ELIMINADO EXITOSAMENTE", Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show()
                     }
@@ -83,7 +84,7 @@ class Eliminar_alumno : AppCompatActivity() {
 
 
 
-        url.httpDelete().responseString { request, response, result ->
+       val peticion= url.httpDelete().responseString { request, response, result ->
             when (result) {
                 is Result.Failure -> {
                     val error = result.getException()
@@ -95,6 +96,8 @@ class Eliminar_alumno : AppCompatActivity() {
                 }
             }
         }
+
+        peticion.join()
     }
 
     fun obtenerAlumno(): ArrayList<Alumno> {

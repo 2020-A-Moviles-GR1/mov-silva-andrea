@@ -21,7 +21,7 @@ import kotlinx.android.synthetic.main.activity_crear_aulas.*
 import kotlinx.android.synthetic.main.activity_opciones_aulas.*
 
 class Actualizar_aula : AppCompatActivity() {
-    val urlGeneral = "http://192.168.1.134:1337"
+    val urlGeneral = "http://192.168.1.141:1337"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_actualizar_aula)
@@ -317,7 +317,8 @@ class Actualizar_aula : AppCompatActivity() {
 
                             )
 
-                            //listaAlumnos.add(Alumno(it.nombre.toString(), it.sexo.toString(),it.fecha_nacimiento.toString()))
+                            listaAlumnos.add(Alumno(it.nombre.toString(), it.sexo.toString(),it.fecha_nacimiento.toString()
+                            ,it.latitud.toString(),it.longitud.toString(),it.url.toString()))
 
                             Log.i("lista_servidor-dentro",listaAlumnos.toString())
 

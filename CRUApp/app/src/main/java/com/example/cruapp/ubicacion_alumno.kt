@@ -90,5 +90,7 @@ class ubicacion_alumno : AppCompatActivity(), OnMapReadyCallback {
         intentExplicito.putExtra("Lat", latLng.latitude)
         intentExplicito.putExtra("Lng", latLng.longitude)
         startActivity(intentExplicito)
+
+        finish()
     }
 }

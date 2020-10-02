@@ -21,7 +21,7 @@ import kotlinx.android.synthetic.main.activity_eliminar_aulas.*
 import kotlinx.android.synthetic.main.activity_opciones_aulas.*
 
 class Eliminar_aulas : AppCompatActivity() {
-    val urlGeneral = "http://192.168.1.134:1337"
+    val urlGeneral = "http://192.168.1.141:1337"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_eliminar_aulas)
@@ -59,13 +59,13 @@ class Eliminar_aulas : AppCompatActivity() {
                             var idAula=obteneridAulas(materia)
 
                             delete_aula(idAula)
-                           lista_memoria_aula.removeAt(position)
+
                             var nombre=lista_memoria_alumno.get(position).nombre
                             var idAlumno=obteneridAlumno(nombre)
                             delete_alumno(idAlumno)
                             lista_memoria_alumno.removeAt(posialum)
                             adaptador.notifyDataSetChanged()
-
+                            lista_memoria_aula.removeAt(position)
                             Snackbar.make(view, "AULA  ELIMINADA EXITOSAMENTE", Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show() }
 
@@ -148,7 +148,8 @@ class Eliminar_aulas : AppCompatActivity() {
 
                             )
 
-                            //listaAlumnos.add(Alumno(it.nombre.toString(), it.sexo.toString(),it.fecha_nacimiento.toString()))
+                            listaAlumnos.add(Alumno(it.nombre.toString(), it.sexo.toString(),it.fecha_nacimiento.toString()
+                            ,it.latitud.toString(),it.longitud.toString(),it.url.toString()))
 
                             Log.i("lista_servidor-dentro",listaAlumnos.toString())
 

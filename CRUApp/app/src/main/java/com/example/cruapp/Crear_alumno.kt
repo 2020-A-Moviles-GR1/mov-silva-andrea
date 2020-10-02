@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.activity_crear_alumno.view.*
 
 class Crear_alumno : AppCompatActivity() {
     //val urlGeneral = "http://192.168.1.134:1337"
-    val urlGeneral = "http://192.168.1.13:1337"
+    val urlGeneral = "http://192.168.1.141:1337"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,7 +31,7 @@ class Crear_alumno : AppCompatActivity() {
         }
 
         Glide.with(this)
-            .load("https://cdn.icon-icons.com/icons2/665/PNG/512/alien_icon-icons.com_60286.png")
+            .load("https://icon-icons.com/icons2/665/PNG/128/alien_icon-icons.com_60286.png")
             .into(imagenes1)
 
         Glide.with(this)
@@ -53,15 +53,19 @@ class Crear_alumno : AppCompatActivity() {
                 btn_sexM.setChecked(true)
             }
              text_fecha.setText( it.fecha_nacimiento)
-            if(it.url=="https://cdn.icon-icons.com/icons2/665/PNG/512/alien_icon-icons.com_60286.png"){
+                 if(it.url=="https://cdn.icon-icons.com/icons2/665/PNG/512/alien_icon-icons.com_60286.png"){
                 slct_imagen1.setChecked(true)
             }
-            if (it.url=="https://icon-icons.com/icons2/2248/PNG/128/pirate_icon_138281.png"){
-                slct_imagen2.setChecked(true)
-            }
-            if(it.url=="https://icon-icons.com/icons2/1695/PNG/128/10874mermaidlightskintone_111987.png"){
-                slct_imagen3.setChecked(true)
-            }
+                if (it.url=="https://icon-icons.com/icons2/2248/PNG/128/pirate_icon_138281.png"){
+                    slct_imagen2.setChecked(true)
+                }
+                if(it.url=="https://icon-icons.com/icons2/1695/PNG/128/10874mermaidlightskintone_111987.png"){
+                    slct_imagen3.setChecked(true)
+                }
+
+
+
+
         }
         btn_guarda.setOnClickListener{
            // insertaralumno()
@@ -76,10 +80,13 @@ class Crear_alumno : AppCompatActivity() {
             if (btn_sexF.isChecked()){
                 btn_sexF.setChecked(false)
             }
+           
         }
         btn_ubicacion.setOnClickListener{
             ir_mapa()
+
         }
+
     }
 
     fun insertaralumno(){
@@ -116,16 +123,24 @@ class Crear_alumno : AppCompatActivity() {
             showDatePickerDialog()
         }
 
-        if(slct_imagen1.isCheckable){
-            urlImagen="https://cdn.icon-icons.com/icons2/665/PNG/512/alien_icon-icons.com_60286.png"
+
+       if(slct_imagen1.isChecked()==true){
+            urlImagen="https://icon-icons.com/icons2/665/PNG/128/alien_icon-icons.com_60286.png"
+
         }
-        if (slct_imagen2.isCheckable){
+        if (slct_imagen2.isChecked()==true){
             urlImagen="https://icon-icons.com/icons2/2248/PNG/128/pirate_icon_138281.png"
         }
-        if(slct_imagen3.isCheckable){
+        if(slct_imagen3.isChecked()==true){
             urlImagen="https://icon-icons.com/icons2/1695/PNG/128/10874mermaidlightskintone_111987.png"
         }
+
+
+
+
+
         Log.i("imagen",urlImagen)
+
         val parametrosUsuario: List<Pair<String, Any>> = listOf(
             "nombre" to txt_nombre.text.toString(),
             "sexo" to sexo,
@@ -150,8 +165,28 @@ class Crear_alumno : AppCompatActivity() {
     }
 
     fun ir_mapa(){
+        var urlImagen:String=""
+        var sexo:String=""
+       if(slct_imagen1.isChecked()==true){
+            urlImagen="https://icon-icons.com/icons2/665/PNG/128/alien_icon-icons.com_60286.png"
+        }
+        if (slct_imagen2.isChecked()==true){
+            urlImagen="https://icon-icons.com/icons2/2248/PNG/128/pirate_icon_138281.png"
+        }
+        if(slct_imagen3.isChecked()==true){
+            urlImagen="https://icon-icons.com/icons2/1695/PNG/128/10874mermaidlightskintone_111987.png"
+        }
 
-        ServicioBD.crearAlumno(txt_nombre.text.toString(),"F", text_fecha.text.toString(),"0.00","0.00","https://icon-icons.com/icons2/1695/PNG/128/10874mermaidlightskintone_111987.png")
+        if(btn_sexM.isChecked()==true){
+            sexo="M"
+
+        }
+        if(btn_sexF.isChecked()==true){
+            sexo="F"
+
+        }
+
+       ServicioBD.listaAlumnos.add(Alumno(txt_nombre.text.toString(),sexo, text_fecha.text.toString(),"0.00","0.00",urlImagen))
         Log.i("insertar","lista"+ ServicioBD.listaAlumnos.toString())
         /*ServicioBD.listaAlumnos.forEach {
             it.nombre=txt_nombre.toString()

@@ -15,7 +15,7 @@ import com.github.kittinunf.result.Result
 
 
 class Buscar_alumno : AppCompatActivity() {
-    val urlGeneral = "http://192.168.1.13:1337"
+    val urlGeneral = "http://192.168.1.141:1337"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_buscar_alumno)

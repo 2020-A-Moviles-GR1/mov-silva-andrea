@@ -17,7 +17,7 @@ import com.github.kittinunf.result.Result
 import kotlinx.android.synthetic.main.activity_buscar_aula.*
 
 class Buscar_aula : AppCompatActivity() {
-    val urlGeneral = "http://192.168.1.13:1337"
+    val urlGeneral = "http://192.168.1.141:1337"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_buscar_aula)

@@ -168,6 +168,7 @@
 
     <com.google.android.material.chip.Chip
         android:id="@+id/slct_imagen1"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
@@ -175,7 +176,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imagen1"
         app:layout_constraintVertical_bias="0.425"
-        style="@style/Widget.MaterialComponents.Chip.Choice"/>
+        style="@style/Widget.MaterialComponents.Chip.Entry"/>
 
     <ImageView
         android:id="@+id/imagen2"
@@ -192,14 +193,14 @@
 
     <com.google.android.material.chip.Chip
         android:id="@+id/slct_imagen3"
+        style="@style/Widget.MaterialComponents.Chip.Entry"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="36dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.529"
+        app:layout_constraintHorizontal_bias="0.537"
         app:layout_constraintStart_toEndOf="@+id/slct_imagen2"
-        app:layout_constraintTop_toBottomOf="@+id/imagen3"
-        style="@style/Widget.MaterialComponents.Chip.Choice"/>
+        app:layout_constraintTop_toBottomOf="@+id/imagen3" />
 
     <ImageView
         android:id="@+id/imagen3"
@@ -215,13 +216,15 @@
 
     <com.google.android.material.chip.Chip
         android:id="@+id/slct_imagen2"
+        style="@style/Widget.MaterialComponents.Chip.Entry"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="180dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.274"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/slct_imagen1"
-        app:layout_constraintTop_toBottomOf="@+id/imagen2"
-        style="@style/Widget.MaterialComponents.Chip.Choice"/>
+        app:layout_constraintTop_toBottomOf="@+id/imagen2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
