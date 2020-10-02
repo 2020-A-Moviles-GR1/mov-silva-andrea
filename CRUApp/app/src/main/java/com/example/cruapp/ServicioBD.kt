@@ -6,15 +6,22 @@ class ServicioBD {
     companion object{
         var listaAlumnos= arrayListOf<Alumno>()
         var listaAulas= arrayListOf<Aulas>()
+
+
         fun crearAlumno(
             nombre:String,
             sexo:String,
-            fecaNacimiento: String
+            fecaNacimiento: String,
+            latitud:String,
+            longitud:String,
+            url:String
         ){
-            listaAlumnos.add(Alumno(nombre,sexo,fecaNacimiento))
+            listaAlumnos.add(Alumno(nombre,sexo,fecaNacimiento,latitud,longitud,url))
 
             Log.i("insertar","lista"+ listaAlumnos.toString())
         }
+
+
 
         fun crearAulas(
             materia:String,

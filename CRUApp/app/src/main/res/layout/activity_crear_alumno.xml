@@ -15,7 +15,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="192dp"
+        android:layout_marginTop="220dp"
         android:background="#00000000"
         android:backgroundTint="#000000"
         android:drawableTint="#322D2D"
@@ -34,14 +34,14 @@
         android:id="@+id/textView5"
         android:layout_width="97dp"
         android:layout_height="43dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="28dp"
         android:background="#000000"
         android:backgroundTint="#03FFFFFF"
         android:text="SEXO:"
         android:textColor="#000000"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.14"
+        app:layout_constraintHorizontal_bias="0.079"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
@@ -49,8 +49,8 @@
         android:id="@+id/textView6"
         android:layout_width="165dp"
         android:layout_height="0dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginBottom="148dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="168dp"
         android:background="#000000"
         android:backgroundTint="#03FFFFFF"
         android:text="FECHA DE NACIMIENTO"
@@ -64,7 +64,7 @@
         android:layout_width="173dp"
         android:layout_height="42dp"
         android:layout_marginStart="20dp"
-        android:layout_marginBottom="148dp"
+        android:layout_marginBottom="176dp"
         android:background="#FFFFFF"
         android:backgroundTint="#FFFFFF"
         android:clickable="true"
@@ -74,21 +74,21 @@
         android:maxLines="1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.027"
         app:layout_constraintStart_toEndOf="@+id/textView6" />
 
     <EditText
         android:id="@+id/txt_nombre"
         android:layout_width="218dp"
         android:layout_height="48dp"
-        android:layout_marginTop="176dp"
+        android:layout_marginTop="204dp"
         android:background="#FFFFFF"
         android:backgroundTint="#FFFFFF"
         android:drawableTint="#FFFFFF"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.844"
+        app:layout_constraintHorizontal_bias="0.937"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -96,7 +96,7 @@
         android:id="@+id/btn_guarda"
         android:layout_width="165dp"
         android:layout_height="57dp"
-        android:layout_marginBottom="48dp"
+        android:layout_marginBottom="16dp"
         android:background="#22557E"
         android:backgroundTint="#61A315"
         android:text="GUARDAR"
@@ -104,27 +104,17 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.544"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageView
-        android:id="@+id/img_alumnos"
-        android:layout_width="275dp"
-        android:layout_height="120dp"
-        android:layout_marginBottom="472dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/alumnosprincipal" />
 
     <RadioGroup
         android:layout_width="167dp"
         android:layout_height="106dp"
-        android:layout_marginBottom="56dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toTopOf="@+id/text_fecha"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.592"
+        app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toEndOf="@+id/textView5">
 
         <RadioButton
@@ -151,5 +141,90 @@
             tools:layout_editor_absoluteX="57dp"
             tools:layout_editor_absoluteY="349dp" />
     </RadioGroup>
+
+    <Button
+        android:id="@+id/btn_ubicacion"
+        android:layout_width="166dp"
+        android:layout_height="51dp"
+        android:layout_marginBottom="104dp"
+        android:backgroundTint="#E6AF08"
+        android:text="Ubicación"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imagen1"
+        android:layout_width="91dp"
+        android:layout_height="114dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.125"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/chica"/>
+
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/slct_imagen1"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imagen1"
+        app:layout_constraintVertical_bias="0.425"
+        style="@style/Widget.MaterialComponents.Chip.Entry"/>
+
+    <ImageView
+        android:id="@+id/imagen2"
+        android:layout_width="97dp"
+        android:layout_height="109dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.092"
+        app:layout_constraintStart_toEndOf="@+id/imagen1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/chica"/>
+
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/slct_imagen3"
+        style="@style/Widget.MaterialComponents.Chip.Entry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.537"
+        app:layout_constraintStart_toEndOf="@+id/slct_imagen2"
+        app:layout_constraintTop_toBottomOf="@+id/imagen3" />
+
+    <ImageView
+        android:id="@+id/imagen3"
+        android:layout_width="93dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.322"
+        app:layout_constraintStart_toEndOf="@+id/imagen2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/chica"
+       />
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/slct_imagen2"
+        style="@style/Widget.MaterialComponents.Chip.Entry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="180dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/slct_imagen1"
+        app:layout_constraintTop_toBottomOf="@+id/imagen2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

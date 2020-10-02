@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">CRUApp</string>
+    <string name="title_activity_ubicacion_alumno">Map</string>
+    <string name="title_activity_mostrar_alumnos">Map</string>
 </resources>

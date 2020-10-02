@@ -15,7 +15,7 @@ import com.github.kittinunf.result.Result
 
 
 class Buscar_alumno : AppCompatActivity() {
-    val urlGeneral = "http://192.168.1.134:1337"
+    val urlGeneral = "http://192.168.1.141:1337"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_buscar_alumno)
@@ -71,7 +71,7 @@ class Buscar_alumno : AppCompatActivity() {
 
                             )
 
-                           listaAlumnos.add(Alumno(it.nombre.toString(), it.sexo.toString(),it.fecha_nacimiento.toString()))
+                           listaAlumnos.add(Alumno(it.nombre.toString(), it.sexo.toString(),it.fecha_nacimiento.toString(),it.latitud.toString(),it.longitud.toString(),it.url.toString()))
 
 
                             /*if(it.pokemons!!.size > 0 ){
